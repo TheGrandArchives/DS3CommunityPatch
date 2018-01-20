@@ -1,1 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable>
+  <CheatEntries>
+    <CheatEntry>
+      <ID>1337036853</ID>
+      <Description>"Washing Pole Fix"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$lua}
+if not syntaxcheck then
+local Weapon = {
+      {5010000,0xC4,"74 00"},
+      {5010000,0xBE,"0A 00"},
+      {5010100,0xC4,"74 00"},
+      {5010100,0xBE,"0A 00"},
+      {5010200,0xC4,"74 00"},
+      {5010200,0xBE,"0A 00"},
+      {5010300,0xC4,"74 00"},
+      {5010300,0xBE,"0A 00"},
+      {5010400,0xC4,"74 00"},
+      {5010400,0xBE,"0A 00"},
+      {5010500,0xC4,"74 00"},
+      {5010500,0xBE,"0A 00"},
+      {5010600,0xC4,"74 00"},
+      {5010600,0xBE,"0A 00"},
+      {5010700,0xC4,"74 00"},
+      {5010700,0xBE,"0A 00"},
+      {5010800,0xC4,"74 00"},
+      {5010800,0xBE,"0A 00"},
+      {5010900,0xC4,"74 00"},
+      {5010900,0xBE,"0A 00"},
+      {5011000,0xC4,"74 00"},
+      {5011000,0xBE,"0A 00"},
+      {5011100,0xC4,"74 00"},
+      {5011100,0xBE,"0A 00"},
+      {5011200,0xC4,"74 00"},
+      {5011200,0xBE,"0A 00"},
+      {5011300,0xC4,"74 00"},
+      {5011300,0xBE,"0A 00"},
+      {5011400,0xC4,"74 00"},
+      {5011400,0xBE,"0A 00"},
+      {5011500,0xC4,"74 00"},
+      {5011500,0xBE,"0A 00"},
+}
 
+ParamIterator("EquipParamWeapon",Weapon,"WashingPoleDefault")
+end
+
+{$asm}
+[DISABLE]
+{$lua}
+if not syntaxcheck then
+
+ParamDepatcher("WashingPoleDefault")
+end
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+</CheatTable>
