@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="24">
+<CheatTable>
   <CheatEntries>
     <CheatEntry>
       <ID>1337037379</ID>
@@ -3778,8 +3778,75 @@ if syntaxcheck then return end
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
+        <CheatEntry>
+          <ID>1337036854</ID>
+          <Description>"Washing Pole Fix"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+{$lua}
+if not syntaxcheck then
+local Weapon = {
+      {5010000,0xC4,"74 00"},
+      {5010100,0xC4,"74 00"},
+      {5010200,0xC4,"74 00"},
+      {5010300,0xC4,"74 00"},
+      {5010400,0xC4,"74 00"},
+      {5010500,0xC4,"74 00"},
+      {5010600,0xC4,"74 00"},
+      {5010700,0xC4,"74 00"},
+      {5010800,0xC4,"74 00"},
+      {5010900,0xC4,"74 00"},
+      {5011000,0xC4,"74 00"},
+      {5011100,0xC4,"74 00"},
+      {5011200,0xC4,"74 00"},
+      {5011300,0xC4,"74 00"},
+      {5011400,0xC4,"74 00"},
+      {5011500,0xC4,"74 00"},
+}
+
+paramUtils:paramIterator("EquipParamWeapon",Weapon,"WashingPoleDefault")
+end
+
+{$asm}
+[DISABLE]
+{$lua}
+if not syntaxcheck then
+
+paramUtils:paramDepatcher("WashingPoleDefault")
+end
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1337036853</ID>
+          <Description>"Darkmoon Bow Fix"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+{$lua}
+if not syntaxcheck then
+local Weapon = {
+      {14130000,0x28,"00 00 8C 42"},
+}
+local Bullet = {
+      {557,0x68,"68 0C D1 00"},
+      {13700200,0x0,"88 70 AC 00"},
+}
+
+paramUtils:paramIterator("EquipParamWeapon",Weapon,"DarkmoonBowDefault")
+paramUtils:paramIterator("Bullet",Bullet,"DarkmoonBowWABulletDefault")
+end
+
+{$asm}
+[DISABLE]
+{$lua}
+if not syntaxcheck then
+paramUtils:paramDepatcher("DarkmoonBowDefault")
+paramUtils:paramDepatcher("DarkmoonBowWABulletDefault")
+end
+</AssemblerScript>
+        </CheatEntry>
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
-  <UserdefinedSymbols/>
 </CheatTable>
