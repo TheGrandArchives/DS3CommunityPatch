@@ -4,7 +4,7 @@ __Step 1:__ Click the Fork button in the upper-right hand corner
 
 __Step 2:__ Create a new branch by clicking Branch: master and typing in the name of your new branch
 
-__Step 3:__ In your new branch, click patch.ce and apply your requested changes to the file, whatever they might be
+__Step 3:__ In your new branch, make the changes you want. It's recommended to download and open the .ct in cheat engine, edit there, and then copy it back using notepad.
 
 __Step 4:__ Head back to the original repository of https://github.com/TheGrandArchives/DS3CommunityPatch and you should see a notice about your recently changed branch, click Compare & pull request once all your changes are done
 
