@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable>
+<CheatTable CheatEngineTableVersion="24">
   <CheatEntries>
     <CheatEntry>
       <ID>1337037379</ID>
@@ -595,6 +595,13 @@ createNativeThread(disableRecord, 1337037701) --Disable PP classes
           <Color>E1E1E1</Color>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
+            <CheatEntry>
+              <ID>1337037714</ID>
+              <Description>"Don't disable or change Param Patcher classes"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>FF0000</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
             <CheatEntry>
               <ID>1337037701</ID>
               <Description>"BaseParamClass"</Description>
@@ -3769,21 +3776,21 @@ if syntaxcheck then return end
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
-            <CheatEntry>
-              <ID>1337037714</ID>
-              <Description>"Don't disable or change Param Patcher classes"</Description>
-              <LastState Value="" RealAddress="00000000"/>
-              <Color>FF0000</Color>
-              <GroupHeader>1</GroupHeader>
-            </CheatEntry>
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
-          <ID>1337036854</ID>
-          <Description>"Washing Pole Fix"</Description>
-          <LastState/>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>[ENABLE]
+          <ID>1337037715</ID>
+          <Description>"Weapons"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>1337036854</ID>
+              <Description>"Washing Pole Fix"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
 {$lua}
 if not syntaxcheck then
 local Weapon = {
@@ -3816,13 +3823,13 @@ if not syntaxcheck then
 paramUtils:paramDepatcher("WashingPoleDefault")
 end
 </AssemblerScript>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>1337036853</ID>
-          <Description>"Darkmoon Bow Fix"</Description>
-          <LastState/>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>[ENABLE]
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337036853</ID>
+              <Description>"Darkmoon Bow Fix"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
 {$lua}
 if not syntaxcheck then
 local Weapon = {
@@ -3845,8 +3852,170 @@ paramUtils:paramDepatcher("DarkmoonBowDefault")
 paramUtils:paramDepatcher("DarkmoonBowWABulletDefault")
 end
 </AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337037720</ID>
+              <Description>"Dragonslayer Spear Fix"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+{$lua}
+if not syntaxcheck then
+local Weapon = {
+      {9220000,0xCA,"32 00"},
+}
+
+local Effect = {
+      {130092200,0x128,"62 0C 00 00"},
+}
+
+paramUtils:paramIterator("EquipParamWeapon",Weapon,"DragonslayerSpearDefault")
+paramUtils:paramIterator("SpEffectParam",Effect,"DragonslayerSpearWADefault")
+end
+
+{$asm}
+[DISABLE]
+{$lua}
+if not syntaxcheck then
+paramUtils:paramDepatcher("DragonslayerSpearDefault")
+paramUtils:paramDepatcher("DragonslayerSpearWADefault")
+end
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1337037719</ID>
+          <Description>"Armor"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>1337037718</ID>
+              <Description>"Armor Tweaks"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+{$lua}
+if syntaxcheck then return end
+local armors = {}
+--[[ BASIC FORMAT:
+armors[decimal armorID] = {durability,weight,poise,
+                        poison res,toxic (Disease) res,bleed res,curse res,frost res,
+                        phys def, slash def,strike def,thrust def,magic def,fire def,thunder def,dark def}
+
+i.e. Wolnir's Crown:
+armors[57500000] = {270,3.4,0.982,
+                    29,29,18,37,27,
+                    0.969,0.969,0.969,0.972,0.961,0.957,0.955,0.951}
+]]
+
+for i,arr in pairs(armors) do
+  local armorPatch = EquipParamProtector:new("ArmorTweaks",i)
+  armorPatch:durabilityMax(arr[1])
+  armorPatch:weight(arr[2])
+  armorPatch:poise(arr[3])
+  armorPatch:resistPoison(arr[4])
+  armorPatch:resistDisease(arr[5])
+  armorPatch:resistBlood(arr[6])
+  armorPatch:resistCurse(arr[7])
+  armorPatch:resistFrost(arr[8])
+  armorPatch:defensePhysical(arr[9])
+  armorPatch:defenseSlash(arr[10])
+  armorPatch:defenseStrike(arr[11])
+  armorPatch:defenseThrust(arr[12])
+  armorPatch:defenseMagic(arr[13])
+  armorPatch:defenseFire(arr[14])
+  armorPatch:defenseThunder(arr[15])
+  armorPatch:defenseDark(arr[16])
+end
+[DISABLE]
+{$lua}
+if not syntaxcheck then
+  paramUtils:restore("ArmorTweaks")
+end
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1337037716</ID>
+          <Description>"Development Tools"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>1337037717</ID>
+              <Description>"Armor Value Finder"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{
+  Author: AlchemyMouse
+  Description: Put an armor and it'll dump what you need into the output,
+               just copy that into the main armor script and edit as needed
+}
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+local armorID = 57500000 --Armor you want
+---------------------------DONT CHANGE------------------------------------------
+function round(num)
+  return math.floor(num * 1000 + 0.5) / 1000
+end
+
+local idTable = paramUtils:getParamIdTable("EquipParamProtector")
+local address = idTable[armorID]
+
+local weight = round(readFloat(address + "32"))
+local poise = round(readFloat(address + "272"))
+local durability = byteTableToWord(readBytes(address + "172",2,true))
+local resistPoison = byteTableToWord(readBytes(address + "192",2,true))
+local resistDisease = byteTableToWord(readBytes(address + "194",2,true))
+local resistBlood = byteTableToWord(readBytes(address + "196",2,true))
+local resistCurse = readBytes(address + "198",1)
+local resistFrost = byteTableToWord(readBytes(address + "300",2,true))
+local defensePhysical = round(readFloat(address + "224"))
+local defenseSlash = round(readFloat(address + "228"))
+local defenseStrike = round(readFloat(address + "232"))
+local defenseThrust = round(readFloat(address + "236"))
+local defenseMagic = round(readFloat(address + "240"))
+local defenseFire = round(readFloat(address + "244"))
+local defenseThunder = round(readFloat(address + "248"))
+local defenseDark = round(readFloat(address + "280"))
+
+local name = "Wolnir's Crown" --INDEV: figure out how to auto-grab this
+
+--print("--" .. armorName)   INDEV
+print("armors[" .. armorID .. "] = {" ..
+      durability .. "," ..
+      weight .. "," ..
+      poise .. ",")
+print("                    " ..
+      resistPoison .. "," ..
+      resistDisease .. "," ..
+      resistBlood .. "," ..
+      resistCurse .. "," ..
+      resistFrost .. ",")
+print("                    " ..
+      defensePhysical .. "," ..
+      defenseSlash .. "," ..
+      defenseStrike .. "," ..
+      defenseThrust .. "," ..
+      defenseMagic .. "," ..
+      defenseFire .. "," ..
+      defenseThunder .. "," ..
+      defenseDark .. "}")
+
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
+  <UserdefinedSymbols/>
 </CheatTable>
