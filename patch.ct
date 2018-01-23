@@ -5,7 +5,7 @@
       <ID>1337037379</ID>
       <Description>"TGA Community Patch v0.1 (Regulation 1.35, Game v1.15)"</Description>
       <Options moHideChildren="1"/>
-      <LastState/>
+      <LastState Activated="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>[ENABLE]
 {$lua}
@@ -606,7 +606,7 @@ createNativeThread(disableRecord, 1337037701) --Disable PP classes
               <ID>1337037701</ID>
               <Description>"BaseParamClass"</Description>
               <Options moHideChildren="1" moActivateChildrenAsWell="1"/>
-              <LastState/>
+              <LastState Activated="1"/>
               <VariableType>Auto Assembler Script</VariableType>
               <AssemblerScript>[ENABLE]
 {$lua}
@@ -3860,26 +3860,19 @@ end
               <VariableType>Auto Assembler Script</VariableType>
               <AssemblerScript>[ENABLE]
 {$lua}
-if not syntaxcheck then
-local Weapon = {
-      {9220000,0xCA,"32 00"},
-}
+if syntaxcheck then return end
+local DragonSlayerSpear = EquipParamWeapon:new("DSSpear",9220000)
+DragonSlayerSpear:attackBaseThunder(50)
 
-local Effect = {
-      {130092200,0x128,"62 0C 00 00"},
-}
+local LightningCharge = SpEffectParam:new("DSSpear",130092200)
+LightningCharge:effectEndurance(60)
+LightningCharge:thunderAttackPower(40)
+LightningCharge:patchBinary(0x160,1,5) --bAdjustFaithAblity
 
-paramUtils:paramIterator("EquipParamWeapon",Weapon,"DragonslayerSpearDefault")
-paramUtils:paramIterator("SpEffectParam",Effect,"DragonslayerSpearWADefault")
-end
-
-{$asm}
 [DISABLE]
 {$lua}
-if not syntaxcheck then
-paramUtils:paramDepatcher("DragonslayerSpearDefault")
-paramUtils:paramDepatcher("DragonslayerSpearWADefault")
-end
+if syntaxcheck then return end
+paramUtils:restore("DSSpear")
 </AssemblerScript>
             </CheatEntry>
           </CheatEntries>
@@ -3934,6 +3927,40 @@ end
 {$lua}
 if not syntaxcheck then
   paramUtils:restore("ArmorTweaks")
+end
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1337037722</ID>
+          <Description>"Spells"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>1337037721</ID>
+              <Description>"Fire Surge Fix"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+{$lua}
+if not syntaxcheck then
+local Spell = {
+      {2405000,0x1B,"FF"},
+      {2405000,0x20,"FF"},
+      {2405000,0x21,"FF"},
+}
+
+paramUtils:paramIterator("Magic",Spell,"FireSurgeDefault")
+end
+
+{$asm}
+[DISABLE]
+{$lua}
+if not syntaxcheck then
+paramUtils:paramDepatcher("FireSurgeDefault")
 end
 </AssemblerScript>
             </CheatEntry>
@@ -4017,5 +4044,10 @@ print("                    " ..
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
-  <UserdefinedSymbols/>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>ParamPatchBase</Name>
+      <Address> 1404EA050</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
 </CheatTable>
