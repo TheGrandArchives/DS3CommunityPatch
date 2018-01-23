@@ -778,7 +778,7 @@ end
                   <ID>1337037702</ID>
                   <Description>"EquipParamWeapon"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Activated="1"/>
+                  <LastState/>
                   <Color>000000</Color>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
@@ -1366,7 +1366,7 @@ if syntaxcheck then return end
                   <ID>1337037703</ID>
                   <Description>"EquipParamProtector"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Activated="1"/>
+                  <LastState/>
                   <Color>000000</Color>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
@@ -1615,7 +1615,7 @@ if syntaxcheck then return end
                   <ID>1337037704</ID>
                   <Description>"EquipParamGoods"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Activated="1"/>
+                  <LastState/>
                   <Color>000000</Color>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
@@ -1917,7 +1917,7 @@ if syntaxcheck then return end
                   <ID>1337037705</ID>
                   <Description>"SpEffectParam"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Activated="1"/>
+                  <LastState/>
                   <Color>000000</Color>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
@@ -2468,7 +2468,7 @@ if syntaxcheck then return end
                   <ID>1337037706</ID>
                   <Description>"Magic"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Activated="1"/>
+                  <LastState/>
                   <Color>000000</Color>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
@@ -2725,7 +2725,7 @@ if syntaxcheck then return end
                   <ID>1337037707</ID>
                   <Description>"Bullet"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Activated="1"/>
+                  <LastState/>
                   <Color>000000</Color>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
@@ -3026,7 +3026,7 @@ if syntaxcheck then return end
                   <ID>1337037708</ID>
                   <Description>"BehaviorParam_PC"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Activated="1"/>
+                  <LastState/>
                   <Color>000000</Color>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
@@ -3103,7 +3103,7 @@ if syntaxcheck then return end
                   <ID>1337037709</ID>
                   <Description>"AtkParam_Pc"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Activated="1"/>
+                  <LastState/>
                   <Color>000000</Color>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
@@ -3378,7 +3378,7 @@ if syntaxcheck then return end
                   <ID>1337037710</ID>
                   <Description>"ThrowParam"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Activated="1"/>
+                  <LastState/>
                   <Color>000000</Color>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
@@ -3499,7 +3499,7 @@ if syntaxcheck then return end
                   <ID>1337037711</ID>
                   <Description>"SwordArtsParam"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Activated="1"/>
+                  <LastState/>
                   <Color>000000</Color>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
@@ -3544,7 +3544,7 @@ if syntaxcheck then return end
                   <ID>1337037712</ID>
                   <Description>"EquipParamAccessory"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Activated="1"/>
+                  <LastState/>
                   <Color>000000</Color>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
@@ -3645,7 +3645,7 @@ if syntaxcheck then return end
                   <ID>1337037713</ID>
                   <Description>"SpEffectVfxParam"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Activated="1"/>
+                  <LastState/>
                   <Color>000000</Color>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
@@ -3853,6 +3853,28 @@ paramUtils:paramDepatcher("DarkmoonBowWABulletDefault")
 end
 </AssemblerScript>
             </CheatEntry>
+            <CheatEntry>
+              <ID>1337037720</ID>
+              <Description>"Dragonslayer Spear Fix"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+{$lua}
+if syntaxcheck then return end
+local DragonSlayerSpear = EquipParamWeapon:new("DSSpear",9220000)
+DragonSlayerSpear:attackBaseThunder(50)
+
+local LightningCharge = SpEffectParam:new("DSSpear",130092200)
+LightningCharge:effectEndurance(60)
+LightningCharge:thunderAttackPower(40)
+LightningCharge:patchBinary(0x160,1,5) --bAdjustFaithAblity
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end
+paramUtils:restore("DSSpear")
+</AssemblerScript>
+            </CheatEntry>
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
@@ -3905,6 +3927,40 @@ end
 {$lua}
 if not syntaxcheck then
   paramUtils:restore("ArmorTweaks")
+end
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1337037722</ID>
+          <Description>"Spells"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>1337037721</ID>
+              <Description>"Fire Surge Fix"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+{$lua}
+if not syntaxcheck then
+local Spell = {
+      {2405000,0x1B,"FF"},
+      {2405000,0x20,"FF"},
+      {2405000,0x21,"FF"},
+}
+
+paramUtils:paramIterator("Magic",Spell,"FireSurgeDefault")
+end
+
+{$asm}
+[DISABLE]
+{$lua}
+if not syntaxcheck then
+paramUtils:paramDepatcher("FireSurgeDefault")
 end
 </AssemblerScript>
             </CheatEntry>
@@ -3988,5 +4044,10 @@ print("                    " ..
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
-  <UserdefinedSymbols/>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>ParamPatchBase</Name>
+      <Address>1404EA050</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
 </CheatTable>
