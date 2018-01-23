@@ -5,7 +5,7 @@
       <ID>1337037379</ID>
       <Description>"TGA Community Patch v0.1 (Regulation 1.35, Game v1.15)"</Description>
       <Options moHideChildren="1"/>
-      <LastState Activated="1"/>
+      <LastState/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>[ENABLE]
 {$lua}
@@ -606,7 +606,7 @@ createNativeThread(disableRecord, 1337037701) --Disable PP classes
               <ID>1337037701</ID>
               <Description>"BaseParamClass"</Description>
               <Options moHideChildren="1" moActivateChildrenAsWell="1"/>
-              <LastState Activated="1"/>
+              <LastState/>
               <VariableType>Auto Assembler Script</VariableType>
               <AssemblerScript>[ENABLE]
 {$lua}
@@ -778,7 +778,7 @@ end
                   <ID>1337037702</ID>
                   <Description>"EquipParamWeapon"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Activated="1"/>
+                  <LastState/>
                   <Color>000000</Color>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
@@ -1366,7 +1366,7 @@ if syntaxcheck then return end
                   <ID>1337037703</ID>
                   <Description>"EquipParamProtector"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Activated="1"/>
+                  <LastState/>
                   <Color>000000</Color>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
@@ -1615,7 +1615,7 @@ if syntaxcheck then return end
                   <ID>1337037704</ID>
                   <Description>"EquipParamGoods"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Activated="1"/>
+                  <LastState/>
                   <Color>000000</Color>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
@@ -1917,7 +1917,7 @@ if syntaxcheck then return end
                   <ID>1337037705</ID>
                   <Description>"SpEffectParam"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Activated="1"/>
+                  <LastState/>
                   <Color>000000</Color>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
@@ -2468,7 +2468,7 @@ if syntaxcheck then return end
                   <ID>1337037706</ID>
                   <Description>"Magic"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Activated="1"/>
+                  <LastState/>
                   <Color>000000</Color>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
@@ -2725,7 +2725,7 @@ if syntaxcheck then return end
                   <ID>1337037707</ID>
                   <Description>"Bullet"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Activated="1"/>
+                  <LastState/>
                   <Color>000000</Color>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
@@ -3026,7 +3026,7 @@ if syntaxcheck then return end
                   <ID>1337037708</ID>
                   <Description>"BehaviorParam_PC"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Activated="1"/>
+                  <LastState/>
                   <Color>000000</Color>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
@@ -3103,7 +3103,7 @@ if syntaxcheck then return end
                   <ID>1337037709</ID>
                   <Description>"AtkParam_Pc"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Activated="1"/>
+                  <LastState/>
                   <Color>000000</Color>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
@@ -3378,7 +3378,7 @@ if syntaxcheck then return end
                   <ID>1337037710</ID>
                   <Description>"ThrowParam"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Activated="1"/>
+                  <LastState/>
                   <Color>000000</Color>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
@@ -3499,7 +3499,7 @@ if syntaxcheck then return end
                   <ID>1337037711</ID>
                   <Description>"SwordArtsParam"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Activated="1"/>
+                  <LastState/>
                   <Color>000000</Color>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
@@ -3544,7 +3544,7 @@ if syntaxcheck then return end
                   <ID>1337037712</ID>
                   <Description>"EquipParamAccessory"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Activated="1"/>
+                  <LastState/>
                   <Color>000000</Color>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
@@ -3645,7 +3645,7 @@ if syntaxcheck then return end
                   <ID>1337037713</ID>
                   <Description>"SpEffectVfxParam"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Activated="1"/>
+                  <LastState/>
                   <Color>000000</Color>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
@@ -4047,7 +4047,7 @@ print("                    " ..
   <UserdefinedSymbols>
     <SymbolEntry>
       <Name>ParamPatchBase</Name>
-      <Address> 1404EA050</Address>
+      <Address>1404EA050</Address>
     </SymbolEntry>
   </UserdefinedSymbols>
 </CheatTable>
