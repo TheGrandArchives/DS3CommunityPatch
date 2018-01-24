@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="24">
+<CheatTable CheatEngineTableVersion="26">
   <CheatEntries>
     <CheatEntry>
       <ID>1337037379</ID>
@@ -3962,6 +3962,153 @@ end
 if not syntaxcheck then
 paramUtils:paramDepatcher("FireSurgeDefault")
 end
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337037723</ID>
+              <Description>"Floating Chaos"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>//WIP, needs testing
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+local FloatingChaosVisual = Bullet:new("floatingChaosEdit",12457000)
+FloatingChaosVisual:life(22)
+
+local FloatingChaosEmitter = Bullet:new("floatingChaosEdit",12457100)
+FloatingChaosEmitter:life(22)
+FloatingChaosEmitter:patchFloat(0xB0,4) --emitter interval
+FloatingChaosEmitter:patchFloat(0xB4,4) --emitter interval
+FloatingChaosEmitter:patchFloat(0xBC,2) --emitter delay until first shot
+
+local FloatingChaosProjectile = Bullet:new("floatingChaosEdit",12457110)
+FloatingChaosProjectile:hormingStopRange(0.4)
+FloatingChaosProjectile:homingAngle(35)
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end
+paramUtils:restore("floatingChaosEdit")
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337037727</ID>
+              <Description>"Way of White Corona"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+{$lua}
+if syntaxcheck then return end
+local coronas = {
+  13556000, 13556010, 13556021
+}
+for i,id in ipairs(coronas) do
+local WoWCoronaAttack = AtkParam_Pc:new("coronaAttack",id)
+WoWCoronaAttack:AtkPhysCorrection(120)
+WoWCoronaAttack:AtkPhys(170)
+end
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end
+paramUtils:restore("coronaAttack")
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337037724</ID>
+              <Description>"Lifehunt Scythe"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+{$lua}
+if syntaxcheck then return end
+local attack = {
+--Lifehunt Scythe
+  {13730000,0x188,"14 01"}, --AtkDark 276
+  {13730000,0x1C,"D0 1B 2C 06"}, --spEffectId1	103554000
+  {13730005,0x188,"14 01"}, --AtkDark 276
+  {13730005,0x1C,"D0 1B 2C 06"}, --spEffectId1	103554000
+--Faith 20
+  {13730100,0x188,"6A 01"}, --AtkDark 362
+  {13730100,0x1C,"D0 1B 2C 06"}, --spEffectId1	103554000
+  {13730105,0x188,"6A 01"}, --AtkDark 362
+  {13730105,0x1C,"D0 1B 2C 06"}, --spEffectId1	103554000
+--Faith 30
+  {13730200,0x188,"82 01"}, --AtkDark 386
+  {13730200,0x1C,"B8 1F 2C 06"}, --spEffectId1	103555000
+  {13730205,0x188,"82 01"}, --AtkDark 386
+  {13730205,0x1C,"B8 1F 2C 06"}, --spEffectId1	103555000
+--Faith 40
+  {13730300,0x188,"9A 01"}, --AtkDark 410
+  {13730300,0x1C,"B8 1F 2C 06"}, --spEffectId1	103555000
+  {13730305,0x188,"9A 01"}, --AtkDark 410
+  {13730305,0x1C,"B8 1F 2C 06"}, --spEffectId1	103555000
+--Faith 60
+  {13730400,0x188,"A8 01"}, --AtkDark 424
+  {13730400,0x1C,"B8 1F 2C 06"}, --spEffectId1	103555000
+  {13730405,0x188,"A8 01"}, --AtkDark 424
+  {13730405,0x1C,"B8 1F 2C 06"}, --spEffectId1	103555000
+}
+paramUtils:paramIterator("AtkParam_Pc",attack,"lifehuntAttack")
+
+local effect = {
+--Lifehunt Scythe
+  {103731000,0xA0,"78 FF FF FF"}, --ChangeHPPoint -136
+--Faith 20
+  {103731100,0xA0,"6E FF FF FF"}, --ChangeHPPoint -146
+--Faith 30
+  {103731200,0xA0,"64 FF FF FF"}, --ChangeHPPoint -156
+--Faith 40
+  {103731300,0xA0,"5A FF FF FF"}, --ChangeHPPoint -166
+--Faith 60
+  {103731400,0xA0,"50 FF FF FF"}, --ChangeHPPoint -176
+}
+paramUtils:paramIterator("SpEffectParam",effect,"lifehuntEffect")
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end
+paramUtils:paramDepatcher("lifehuntAttack")
+paramUtils:paramDepatcher("lifehuntEffect")
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337037725</ID>
+              <Description>"Dark Weapon"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+{$lua}
+if syntaxcheck then return end
+local DarkBlade = SpEffectParam:new("darkBladeBuff",103640000)
+DarkBlade:patch4Byte(0x1E8,60) --darkAttackPower
+DarkBlade:patchBinary(0x160,1,4) --bAdjustMagicAblity
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end
+paramUtils:restore("darkBladeBuff")
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337037726</ID>
+              <Description>"Blessed Weapon"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+{$lua}
+if syntaxcheck then return end
+local BlessedWeapon = SpEffectParam:new("blessedWeaponBuff",103640000)
+BlessedWeapon:effectEndurance(60)
+BlessedWeapon:physicsAttackPowerRate(1)
+BlessedWeapon:physicsAttackPower(30)
+BlessedWeapon:changeHpPoint(-4)
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end
+paramUtils:restore("blessedWeaponBuff")
 </AssemblerScript>
             </CheatEntry>
           </CheatEntries>
