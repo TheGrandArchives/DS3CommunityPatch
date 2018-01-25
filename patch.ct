@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="26">
+<CheatTable CheatEngineTableVersion="24">
   <CheatEntries>
     <CheatEntry>
       <ID>1337037379</ID>
@@ -775,10 +775,1117 @@ end
 </AssemblerScript>
               <CheatEntries>
                 <CheatEntry>
+                  <ID>1337037710</ID>
+                  <Description>"ThrowParam"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Activated="1"/>
+                  <Color>000000</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+--[[START ThrowParam class]]--
+ThrowParam = BaseParamClass:new()
+
+function ThrowParam:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("ThrowParam", uuid, id, address)
+	return o
+end
+
+function ThrowParam:AtkChrId(value)
+	self:patch4Byte(0x0, value)
+end
+
+function ThrowParam:DefChrId(value)
+	self:patch4Byte(0x4, value)
+end
+
+function ThrowParam:Dist(value)
+	self:patchFloat(0x8, value)
+end
+
+function ThrowParam:DiffAngMin(value)
+	self:patchFloat(0xC, value)
+end
+
+function ThrowParam:DiffAngMax(value)
+	self:patchFloat(0x10, value)
+end
+
+function ThrowParam:UpperYRange(value)
+	self:patchFloat(0x14, value)
+end
+
+function ThrowParam:LowerYRange(value)
+	self:patchFloat(0x18, value)
+end
+
+function ThrowParam:DiffAngMyToDef(value)
+	self:patchFloat(0x1C, value)
+end
+
+function ThrowParam:ThrowTypeId(value)
+	self:patch4Byte(0x20, value)
+end
+
+function ThrowParam:AtkAnimId(value)
+	self:patch4Byte(0x24, value)
+end
+
+function ThrowParam:DefAnimId(value)
+	self:patch4Byte(0x28, value)
+end
+
+function ThrowParam:EscHp(value)
+	self:patch2Byte(0x2C, value)
+end
+
+function ThrowParam:SelfEscCycleTime(value)
+	self:patch2Byte(0x2E, value)
+end
+
+function ThrowParam:SphereCastRadiusRateTop(value)
+	self:patch2Byte(0x30, value)
+end
+
+function ThrowParam:SphereCastRadiusRateLow(value)
+	self:patch2Byte(0x32, value)
+end
+
+function ThrowParam:PadType(value)
+	self:patchByte(0x34, value)
+end
+
+function ThrowParam:AtkEnableState(value)
+	self:patchByte(0x35, value)
+end
+
+function ThrowParam:AtkSorbDmyId(value)
+	self:patchByte(0x36, value)
+end
+
+function ThrowParam:DefSorbDmyId(value)
+	self:patchByte(0x37, value)
+end
+
+function ThrowParam:ThrowType(value)
+	self:patchByte(0x38, value)
+end
+
+function ThrowParam:SelfEscCycleCnt(value)
+	self:patchByte(0x39, value)
+end
+
+function ThrowParam:DmyHasChrDirType(value)
+	self:patchByte(0x3A, value)
+end
+
+-- insert 3B-7C here
+
+--[[END ThrowParam class]]--
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end
+
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337037711</ID>
+                  <Description>"SwordArtsParam"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Activated="1"/>
+                  <Color>000000</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+--[[START SwordArtsParam class]]--
+SwordArtsParam = BaseParamClass:new()
+
+function SwordArtsParam:new(uuid, id, address)
+    local o = {}
+    self.__index = self
+    setmetatable(o, self)
+
+    o:init("SwordArtsParam", uuid, id, address)
+    return o
+end
+
+function SwordArtsParam:WeaponArtId(value)
+    self:patchByte(0x0,value)
+end
+
+function SwordArtsParam:FPcost(value)
+    self:patch2Byte(0xE,value)
+end
+
+function SwordArtsParam:R1FP(value)
+    self:patch2Byte(0x10,value)
+end
+
+function SwordArtsParam:R2FP(value)
+    self:patch2Byte(0x12,value)
+end
+--[[END SwordArtsParam class]]--
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337037713</ID>
+                  <Description>"SpEffectVfxParam"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Activated="1"/>
+                  <Color>000000</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+--[[START SpEffectVfxParam class]]--
+SpEffectVfxParam = BaseParamClass:new()
+
+function SpEffectVfxParam:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("SpEffectVfxParam", uuid, id, address)
+	return o
+end
+
+function SpEffectVfxParam:midstSfxID(value)
+    self:patch4Byte(0x0, value)
+end
+
+function SpEffectVfxParam:midstSeID(value)
+    self:patch4Byte(0x4, value)
+end
+
+function SpEffectVfxParam:initSfxID(value)
+    self:patch4Byte(0x8, value)
+end
+
+function SpEffectVfxParam:InitSeID(value)
+    self:patch4Byte(0xC, value)
+end
+
+function SpEffectVfxParam:FinishSfxID(value)
+    self:patch4Byte(0x10, value)
+end
+
+function SpEffectVfxParam:FinishSeID(value)
+    self:patch4Byte(0x14, value)
+end
+
+function SpEffectVfxParam:camouflageBeginDist(value)
+    self:patchFloat(0x18, value)
+end
+
+function SpEffectVfxParam:camouflageEndDist(value)
+    self:patchFloat(0x1C, value)
+end
+
+function SpEffectVfxParam:transformProtectorID(value)
+    self:patch4Byte(0x20, value)
+end
+
+function SpEffectVfxParam:midstDmyID(value)
+    self:patch2Byte(0x24, value)
+end
+
+function SpEffectVfxParam:initDmyID(value)
+    self:patch2Byte(0x26, value)
+end
+
+function SpEffectVfxParam:FinishDmyID(value)
+    self:patch2Byte(0x28, value)
+end
+
+function SpEffectVfxParam:EffectType(value)
+    self:patchByte(0x2A, value)
+end
+
+function SpEffectVfxParam:SoulParamIDForWepEnchant(value)
+    self:patchByte(0x2B, value)
+end
+
+function SpEffectVfxParam:PlayCategory(value)
+    self:patchByte(0x2C, value)
+end
+
+function SpEffectVfxParam:PlayPriority(value)
+    self:patchByte(0x2D, value)
+end
+
+function SpEffectVfxParam:ExistEffectForLarge(value)
+    self:patchBinary(0x2E, value , 0)
+end
+
+function SpEffectVfxParam:ExistEffectForSoul(value)
+    self:patchBinary(0x2E, value , 1)
+end
+
+function SpEffectVfxParam:EffectInvisibleAtCamouflage(value)
+    self:patchBinary(0x2E, value , 2)
+end
+
+function SpEffectVfxParam:useCamouflage(value)
+    self:patchBinary(0x2E, value , 3)
+end
+
+function SpEffectVfxParam:InvisibleAtFriendCamouflage(value)
+    self:patchBinary(0x2E, value , 4)
+end
+
+function SpEffectVfxParam:addMapAreaBlock(value)
+    self:patchBinary(0x2E, value , 5)
+end
+
+function SpEffectVfxParam:halfCamouflage(value)
+    self:patchBinary(0x2E, value , 6)
+end
+
+function SpEffectVfxParam:isFullBodyTransformProtectorID(value)
+    self:patchBinary(0x2E, value , 7)
+end
+
+function SpEffectVfxParam:IsInvisibleWeapon(value)
+    self:patchBinary(0x2F, value , 0)
+end
+
+function SpEffectVfxParam:IsSilence(value)
+    self:patchBinary(0x2F, value , 1)
+end
+--[[END SpEffectVfxParam class]]--
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337037705</ID>
+                  <Description>"SpEffectParam"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Activated="1"/>
+                  <Color>000000</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+--[[START SpEffectParam class]]--
+SpEffectParam = BaseParamClass:new()
+
+function SpEffectParam:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("SpEffectParam", uuid, id, address)
+	return o
+end
+
+function SpEffectParam:iconId(value)
+	self:patch4Byte(0x0, value)
+end
+
+function SpEffectParam:conditionHp(value)
+	self:patchFloat(0x4, value)
+end
+
+function SpEffectParam:effectEndurance(value)
+	self:patchFloat(0x8, value)
+end
+
+function SpEffectParam:motionInterval(value)
+	self:patchFloat(0xC, value)
+end
+
+--Modifier
+function SpEffectParam:maxHpRate(value)
+	self:patchFloat(0x10, value)
+end
+
+function SpEffectParam:maxMpRate(value)
+	self:patchFloat(0x14, value)
+end
+
+function SpEffectParam:maxStaminaRate(value)
+	self:patchFloat(0x18, value)
+end
+
+--Damage Cut
+function SpEffectParam:slashDamageCutRate(value)
+	self:patchFloat(0x1C, value)
+end
+
+function SpEffectParam:blowDamageCutRate(value)
+	self:patchFloat(0x20, value)
+end
+
+function SpEffectParam:thrustDamageCutRate(value)
+	self:patchFloat(0x24, value)
+end
+
+function SpEffectParam:neutralDamageCutRate(value)
+	self:patchFloat(0x28, value)
+end
+
+function SpEffectParam:magicDamageCutRate(value)
+	self:patchFloat(0x2C, value)
+end
+
+function SpEffectParam:fireDamageCutRate(value)
+	self:patchFloat(0x30, value)
+end
+
+function SpEffectParam:thunderDamageCutRate(value)
+	self:patchFloat(0x34, value)
+end
+
+--Rate
+function SpEffectParam:physicsAttackRate(value)
+	self:patchFloat(0x38, value)
+end
+
+function SpEffectParam:magicAttackRate(value)
+	self:patchFloat(0x3C, value)
+end
+
+function SpEffectParam:fireAttackRate(value)
+	self:patchFloat(0x40, value)
+end
+
+function SpEffectParam:thunderAttackRate(value)
+	self:patchFloat(0x44, value)
+end
+
+--Power Rate
+function SpEffectParam:physicsAttackPowerRate(value)
+	self:patchFloat(0x48, value)
+end
+
+function SpEffectParam:magicAttackPowerRate(value)
+	self:patchFloat(0x4C, value)
+end
+
+function SpEffectParam:fireAttackPowerRate(value)
+	self:patchFloat(0x50, value)
+end
+
+function SpEffectParam:thunderAttackPowerRate(value)
+	self:patchFloat(0x54, value)
+end
+
+function SpEffectParam:physicsAttackPower(value)
+	self:patch4Byte(0x58, value)
+end
+
+function SpEffectParam:magicAttackPower(value)
+	self:patch4Byte(0x5C, value)
+end
+
+function SpEffectParam:fireAttackPower(value)
+	self:patch4Byte(0x60, value)
+end
+
+function SpEffectParam:thunderAttackPower(value)
+	self:patch4Byte(0x64, value)
+end
+
+--Diffence Rate
+function SpEffectParam:physicsDiffenceRate(value)
+	self:patchFloat(0x68, value)
+end
+
+function SpEffectParam:magicDiffenceRate(value)
+	self:patchFloat(0x6C, value)
+end
+
+function SpEffectParam:fireDiffenceRate(value)
+	self:patchFloat(0x70, value)
+end
+
+function SpEffectParam:thunderDiffenceRate(value)
+	self:patchFloat(0x74, value)
+end
+
+function SpEffectParam:physicsDiffence(value)
+	self:patch4Byte(0x78, value)
+end
+
+function SpEffectParam:magicDiffence(value)
+	self:patch4Byte(0x7C, value)
+end
+
+function SpEffectParam:fireDiffence(value)
+	self:patch4Byte(0x80, value)
+end
+
+function SpEffectParam:thunderDiffence(value)
+	self:patch4Byte(0x84, value)
+end
+
+--Change Rare 1
+function SpEffectParam:noGuardDamageRate(value)
+	self:patchFloat(0x88, value)
+end
+
+function SpEffectParam:vitalSpotChangeRate(value)
+	self:patchFloat(0x8C, value)
+end
+
+function SpEffectParam:normalSpotChangeRate(value)
+	self:patchFloat(0x90, value)
+end
+
+function SpEffectParam:maxHpChangeRate(value)
+	self:patchFloat(0x94, value)
+end
+
+
+function SpEffectParam:behaviorId(value)
+	self:patch4Byte(0x98, value)
+end
+
+--Change Rare 2
+function SpEffectParam:changeHpRate(value)
+	self:patchFloat(0x9C, value)
+end
+
+function SpEffectParam:changeHpPoint(value)
+	self:patch4Byte(0xA0, value)
+end
+
+function SpEffectParam:changeMpRate(value)
+	self:patchFloat(0xA4, value)
+end
+
+function SpEffectParam:changeMpPoint(value)
+	self:patch4Byte(0xA8, value)
+end
+
+function SpEffectParam:mpRecoverChangeSpeed(value)
+	self:patch4Byte(0xAC, value)
+end
+
+function SpEffectParam:changeStaminaRate(value)
+	self:patchFloat(0xB0, value)
+end
+
+function SpEffectParam:changeStaminaPoint(value)
+	self:patch4Byte(0xB4, value)
+end
+
+function SpEffectParam:staminaRecoverChangeSpeed(value)
+	self:patch4Byte(0xB8, value)
+end
+
+
+function SpEffectParam:magicEffectTimeChange(value)
+	self:patchFloat(0xBC, value)
+end
+
+--Durability
+function SpEffectParam:insideDurability(value)
+	self:patch4Byte(0xC0, value)
+end
+
+function SpEffectParam:maxDurability(value)
+	self:patch4Byte(0xC4, value)
+end
+
+
+function SpEffectParam:staminaAttackRate(value)
+	self:patchFloat(0xC8, value)
+end
+
+function SpEffectParam:poizonAttackPower(value)
+	self:patch4Byte(0xCC, value)
+end
+
+function SpEffectParam:registIllness(value)
+	self:patch4Byte(0xD0, value)
+end
+
+function SpEffectParam:registBlood(value)
+	self:patch4Byte(0xD4, value)
+end
+
+function SpEffectParam:registCurse(value)
+	self:patch4Byte(0xD8, value)
+end
+
+function SpEffectParam:fallDamageRate(value)
+	self:patchFloat(0xDC, value)
+end
+
+function SpEffectParam:soulRate(value)
+	self:patchFloat(0xE0, value)
+end
+
+function SpEffectParam:equipWeightChangeRate(value)
+	self:patchFloat(0xE4, value)
+end
+
+function SpEffectParam:allItemWeightChangeRate(value)
+	self:patchFloat(0xE8, value)
+end
+
+function SpEffectParam:soul(value)
+	self:patch4Byte(0xEC, value)
+end
+
+function SpEffectParam:animIdOffset(value)
+	self:patch4Byte(0xF0, value)
+end
+
+function SpEffectParam:haveSoulRate(value)
+	self:patchFloat(0xF4, value)
+end
+
+function SpEffectParam:targetPriority(value)
+	self:patchFloat(0xF8, value)
+end
+
+function SpEffectParam:sightSearchEnemyCut(value)
+	self:patch4Byte(0xFC, value)
+end
+
+function SpEffectParam:hearingSearchEnemyCut(value)
+	self:patchFloat(0x100, value)
+end
+
+function SpEffectParam:grabityRate(value)
+	self:patchFloat(0x104, value)
+end
+
+--Change Rate 3
+function SpEffectParam:registPoizonChangeRate(value)
+	self:patchFloat(0x108, value)
+end
+
+function SpEffectParam:registIllnessChangeRate(value)
+	self:patchFloat(0x10C, value)
+end
+
+function SpEffectParam:registBloodChangeRate(value)
+	self:patchFloat(0x110, value)
+end
+
+function SpEffectParam:registCurseChangeRate(value)
+	self:patchFloat(0x114, value)
+end
+
+
+function SpEffectParam:soulStealRate(value)
+	self:patchFloat(0x118, value)
+end
+
+function SpEffectParam:lifeReductionRate(value)
+	self:patchFloat(0x11C, value)
+end
+
+function SpEffectParam:hpRecoverRate(value)
+	self:patchFloat(0x120, value)
+end
+
+function SpEffectParam:replaceSpEffectId(value)
+	self:patch4Byte(0x124, value)
+end
+
+function SpEffectParam:cycleOccurrenceSpEffectId(value)
+	self:patch4Byte(0x128, value)
+end
+
+function SpEffectParam:atkOccurence(value)
+	self:patch4Byte(0x12C, value)
+end
+
+function SpEffectParam:guardDefFlickPowerRate(value)
+	self:patchFloat(0x130, value)
+end
+
+function SpEffectParam:guardStaminaCutRate(value)
+	self:patchFloat(0x134, value)
+end
+
+function SpEffectParam:rayCastPassedTime(value)
+	self:patch2Byte(0x138, value)
+end
+
+function SpEffectParam:changeSuperArmorPoint(value)
+	self:patch2Byte(0x13A, value)
+end
+
+function SpEffectParam:bowDistRate(value)
+	self:patch2Byte(0x13C, value)
+end
+
+function SpEffectParam:spCategory(value)
+	self:patch2Byte(0x13E, value)
+end
+
+function SpEffectParam:categoryPriority(value)
+	self:patchByte(0x140, value)
+end
+
+function SpEffectParam:saveCategory(value)
+	self:patchByte(0x141, value)
+end
+
+function SpEffectParam:changeMagicSlot(value)
+	self:patchByte(0x142, value)
+end
+
+function SpEffectParam:changeMiracleSlot(value)
+	self:patchByte(0x143, value)
+end
+
+function SpEffectParam:heroPointDamage(value)
+	self:patchByte(0x144, value)
+end
+
+function SpEffectParam:defFlickPower(value)
+	self:patchByte(0x145, value)
+end
+
+function SpEffectParam:flickDamageCutRate(value)
+	self:patchByte(0x146, value)
+end
+
+function SpEffectParam:bloodDamageRate(value)
+	self:patchByte(0x147, value)
+end
+
+--Damage Level
+function SpEffectParam:dmgLv_None(value)
+	self:patchByte(0x148, value)
+end
+
+function SpEffectParam:dmgLv_S(value)
+	self:patchByte(0x149, value)
+end
+
+function SpEffectParam:dmgLv_M(value)
+	self:patchByte(0x14A, value)
+end
+
+function SpEffectParam:dmgLv_L(value)
+	self:patchByte(0x14B, value)
+end
+
+function SpEffectParam:dmgLv_BlowM(value)
+	self:patchByte(0x14C, value)
+end
+
+function SpEffectParam:dmgLv_Push(value)
+	self:patchByte(0x14D, value)
+end
+
+function SpEffectParam:dmgLv_Strike(value)
+	self:patchByte(0x14E, value)
+end
+
+function SpEffectParam:dmgLv_BlowS(value)
+	self:patchByte(0x14F, value)
+end
+
+function SpEffectParam:dmgLv_Min(value)
+	self:patchByte(0x150, value)
+end
+
+function SpEffectParam:dmgLv_Uppercut(value)
+	self:patchByte(0x151, value)
+end
+
+function SpEffectParam:dmgLv_BlowLL(value)
+	self:patchByte(0x152, value)
+end
+
+function SpEffectParam:dmgLv_Breath(value)
+	self:patchByte(0x153, value)
+end
+
+
+function SpEffectParam:atkAttribute(value)
+	self:patchByte(0x154, value)
+end
+
+function SpEffectParam:spAttribute(value)
+	self:patchByte(0x155, value)
+end
+
+function SpEffectParam:stateInfo(value)
+	self:patchByte(0x156, value)
+end
+
+function SpEffectParam:wepParamChange(value)
+	self:patchByte(0x157, value)
+end
+
+function SpEffectParam:moveType(value)
+	self:patchByte(0x158, value)
+end
+
+function SpEffectParam:lifeReductionType(value)
+	self:patchByte(0x159, value)
+end
+
+function SpEffectParam:throwCondition(value)
+	self:patchByte(0x15A, value)
+end
+
+function SpEffectParam:addBehaviorJudgeId_condition(value)
+	self:patchByte(0x15B, value)
+end
+
+function SpEffectParam:addBehaviorJudgeId_add(value)
+	self:patchByte(0x15C, value)
+end
+
+-- insert Minor 1 here
+
+-- insert Unknown here
+
+function SpEffectParam:frostAttackPower(value)
+	self:patch4Byte(0x1AC, value)
+end
+
+function SpEffectParam:darkDamageCutRate(value)
+	self:patchFloat(0x1D4, value)
+end
+
+function SpEffectParam:darkDifferenceRate(value)
+	self:patchFloat(0x1D8, value)
+end
+
+function SpEffectParam:darkAttackPower(value)
+	self:patch4Byte(0x1E4, value)
+end
+
+function SpEffectParam:registFrostChange(value)
+	self:patch4Byte(0x2BC, value)
+end
+
+--Buff's
+function SpEffectParam:vigorBuff(value)
+	self:patchByte(0x308, value)
+end
+
+function SpEffectParam:attunementBuff(value)
+	self:patchByte(0x309, value)
+end
+
+function SpEffectParam:enduranceBuff(value)
+	self:patchByte(0x30A, value)
+end
+
+function SpEffectParam:vitalityBuff(value)
+	self:patchByte(0x30B, value)
+end
+
+function SpEffectParam:strenghtBuff(value)
+	self:patchByte(0x30C, value)
+end
+
+function SpEffectParam:dextrerityBuff(value)
+	self:patchByte(0x30D, value)
+end
+
+function SpEffectParam:intelligenceBuff(value)
+	self:patchByte(0x30E, value)
+end
+
+function SpEffectParam:faithBuff(value)
+	self:patchByte(0x30F, value)
+end
+
+function SpEffectParam:luckBuff(value)
+	self:patchByte(0x310, value)
+end
+
+--[[END SpEffectParam class]]--
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end
+
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337037706</ID>
+                  <Description>"Magic"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Activated="1"/>
+                  <Color>000000</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+--[[START Magic class]]--
+Magic = BaseParamClass:new()
+
+function Magic:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("Magic", uuid, id, address)
+	return o
+end
+
+function Magic:YesNoDialogBox(value)
+	self:patchByte(0x0, value)
+end
+
+function Magic:LimitCancelSpEffectID(value)
+	self:patch4Byte(0x4, value)
+end
+
+function Magic:SortID(value)
+	self:patch2Byte(0x8, value)
+end
+
+function Magic:ReferenceID(value)
+	self:patch2Byte(0xA, value)
+end
+
+function Magic:FPCost(value)
+	self:patch2Byte(0xC, value)
+end
+
+function Magic:StaminaCost(value)
+	self:patch2Byte(0xE, value)
+end
+
+function Magic:IconID(value)
+	self:patch2Byte(0x10, value)
+end
+
+function Magic:BehaviorID(value)
+	self:patch2Byte(0x12, value)
+end
+
+function Magic:MaterialItemID(value)
+	self:patch2Byte(0x14, value)
+end
+
+function Magic:ReplaceMagicID(value)
+	self:patch2Byte(0x16, value)
+end
+
+function Magic:NumberofCasts(value)
+	self:patch2Byte(0x18, value)
+end
+
+function Magic:Humanity(value)
+	self:patchByte(0x1A, value)
+end
+
+function Magic:OverDexterity(value)
+	self:patchByte(0x1B, value)
+end
+
+function Magic:SFXVariation(value)
+	self:patchByte(0x1C, value)
+end
+
+function Magic:SlotsUsed(value)
+	self:patchByte(0x1D, value)
+end
+
+function Magic:RequiredINT(value)
+	self:patchByte(0x1E, value)
+end
+
+function Magic:RequiredFAI(value)
+	self:patchByte(0x1F, value)
+end
+
+function Magic:DexterityMinimumCastSpeedScaling(value)
+	self:patchByte(0x20, value)
+end
+
+function Magic:DexterityMaximumCastSpeedScaling(value)
+	self:patchByte(0x21, value)
+end
+
+function Magic:EzStateBehaviorType(value)
+	self:patchByte(0x22, value)
+end
+
+function Magic:ReferenceCategory(value)
+	self:patchByte(0x23, value)
+end
+
+function Magic:SpEffectCategory(value)
+	self:patchByte(0x24, value)
+end
+
+function Magic:CastAnimation(value)
+	self:patchByte(0x25, value)
+end
+
+function Magic:MenuType(value)
+	self:patchByte(0x26, value)
+end
+
+function Magic:HasSpEffectType(value)
+	self:patchByte(0x27, value)
+end
+
+function Magic:ReplaceCategory(value)
+	self:patchByte(0x28, value)
+end
+
+function Magic:UseLimitCategory(value)
+	self:patchByte(0x29, value)
+end
+
+-- insert Vow Types 1 here
+
+function Magic:EnableMulti(value)
+	self:patchBinary(0x2B, value, 0)
+end
+
+function Magic:EnableMultOnly(value)
+	self:patchBinary(0x2B, value, 1)
+end
+
+function Magic:IsWeaponEnchant(value)
+	self:patchBinary(0x2B, value, 2)
+end
+
+function Magic:IsShieldEnchant(value)
+	self:patchBinary(0x2B, value, 3)
+end
+
+function Magic:EnableHuman(value)
+	self:patchBinary(0x2B, value, 4)
+end
+
+function Magic:EnableDragonPhantom(value)
+	self:patchBinary(0x2B, value, 5)
+end
+
+function Magic:EnableWhitePhantom(value)
+	self:patchBinary(0x2B, value, 6)
+end
+
+function Magic:EnableBlackPhantom(value)
+	self:patchBinary(0x2B, value, 7)
+end
+
+function Magic:DisableOffline(value)
+	self:patchBinary(0x2C, value, 0)
+end
+
+function Magic:UsesMiracleResonance(value)
+	self:patchBinary(0x2C, value, 1)
+end
+
+-- insert Vow Types 2 here
+
+-- insert 2E-2F
+
+function Magic:sfxID1(value)
+	self:patch4Byte(0x30, value)
+end
+
+function Magic:sfxID2(value)
+	self:patch4Byte(0x34, value)
+end
+
+function Magic:sfxID3(value)
+	self:patch4Byte(0x38, value)
+end
+
+-- insert 3C-40
+
+--Faith Breakpoints
+function Magic:FaithBreakpoint20(value)
+	self:patchByte(0x41, value)
+end
+
+function Magic:FaithBreakpoint30(value)
+	self:patchByte(0x42, value)
+end
+
+function Magic:FaithBreakpoint40(value)
+	self:patchByte(0x43, value)
+end
+
+function Magic:FaithBreakpoint60(value)
+	self:patchByte(0x44, value)
+end
+
+-- insert 45-47
+
+
+--Spell cast at X Faith
+function Magic:Spellcastat20Faith(value)
+	self:patch4Byte(0x48, value)
+end
+
+function Magic:Spellcastat20Faith(value)
+	self:patch4Byte(0x4C, value)
+end
+
+function Magic:Spellcastat20Faith(value)
+	self:patch4Byte(0x50, value)
+end
+
+function Magic:Spellcastat20Faith(value)
+	self:patch4Byte(0x54, value)
+end
+
+-- insert 58-60
+
+-- Bullets
+function Magic:Bullet1(value)
+	self:patch4Byte(0x64, value)
+end
+
+function Magic:Bullet2(value)
+	self:patch4Byte(0x68, value)
+end
+
+function Magic:Bullet3(value)
+	self:patch4Byte(0x6C, value)
+end
+
+-- insert 6C
+
+function Magic:Bullet4(value)
+	self:patch4Byte(0x70, value)
+end
+
+--[[END Magic class]]--
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end
+
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
                   <ID>1337037702</ID>
                   <Description>"EquipParamWeapon"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState/>
+                  <LastState Activated="1"/>
                   <Color>000000</Color>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
@@ -1366,7 +2473,7 @@ if syntaxcheck then return end
                   <ID>1337037703</ID>
                   <Description>"EquipParamProtector"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState/>
+                  <LastState Activated="1"/>
                   <Color>000000</Color>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
@@ -1583,11 +2690,11 @@ function EquipParamProtector:defenseMagic(value)
 end
 
 function EquipParamProtector:defenseFire(value)
-	self:patchFloat(0xE4, value)
+	self:patchFloat(0xF4, value)
 end
 
 function EquipParamProtector:defenseThunder(value)
-	self:patchFloat(0xE8, value)
+	self:patchFloat(0xF8, value)
 end
 
 
@@ -1615,7 +2722,7 @@ if syntaxcheck then return end
                   <ID>1337037704</ID>
                   <Description>"EquipParamGoods"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState/>
+                  <LastState Activated="1"/>
                   <Color>000000</Color>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
@@ -1914,818 +3021,111 @@ if syntaxcheck then return end
 </AssemblerScript>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337037705</ID>
-                  <Description>"SpEffectParam"</Description>
+                  <ID>1337037712</ID>
+                  <Description>"EquipParamAccessory"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState/>
+                  <LastState Activated="1"/>
                   <Color>000000</Color>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
 {$lua}
 if syntaxcheck then return end
 
---[[START SpEffectParam class]]--
-SpEffectParam = BaseParamClass:new()
+--[[START EquipParamAccessory class]]--
+EquipParamAccessory = BaseParamClass:new()
 
-function SpEffectParam:new(uuid, id, address)
-	local o = {}
-	self.__index = self
-	setmetatable(o, self)
+function EquipParamAccessory:new(uuid, id, address)
+    local o = {}
+    self.__index = self
+    setmetatable(o, self)
 
-	o:init("SpEffectParam", uuid, id, address)
-	return o
+    o:init("EquipParamAccessory", uuid, id, address)
+    return o
 end
 
-function SpEffectParam:iconId(value)
-	self:patch4Byte(0x0, value)
+function EquipParamAccessory:refId(value)
+    self:patch4Byte(0x0, value)
 end
 
-function SpEffectParam:conditionHp(value)
-	self:patchFloat(0x4, value)
+function EquipParamAccessory:sfxVariation(value)
+    self:patch4Byte(0x4, value)
 end
 
-function SpEffectParam:effectEndurance(value)
-	self:patchFloat(0x8, value)
+function EquipParamAccessory:weight(value)
+    self:patchFloat(0x8, value)
 end
 
-function SpEffectParam:motionInterval(value)
-	self:patchFloat(0xC, value)
+function EquipParamAccessory:behaviorId(value)
+    self:patch4Byte(0xC, value)
 end
 
---Modifier
-function SpEffectParam:maxHpRate(value)
-	self:patchFloat(0x10, value)
+function EquipParamAccessory:basicPrice(value)
+    self:patch4Byte(0x10, value)
 end
 
-function SpEffectParam:maxMpRate(value)
-	self:patchFloat(0x14, value)
+function EquipParamAccessory:sellValue(value)
+    self:patch4Byte(0x14, value)
 end
 
-function SpEffectParam:maxStaminaRate(value)
-	self:patchFloat(0x18, value)
+function EquipParamAccessory:sortId(value)
+    self:patch4Byte(0x18, value)
 end
 
---Damage Cut
-function SpEffectParam:slashDamageCutRate(value)
-	self:patchFloat(0x1C, value)
+function EquipParamAccessory:qwcId(value)
+    self:patch4Byte(0x1C, value)
 end
 
-function SpEffectParam:blowDamageCutRate(value)
-	self:patchFloat(0x20, value)
+function EquipParamAccessory:equipModelId(value)
+    self:patch2Byte(0x20, value)
 end
 
-function SpEffectParam:thrustDamageCutRate(value)
-	self:patchFloat(0x24, value)
+function EquipParamAccessory:iconId(value)
+    self:patch2Byte(0x22, value)
 end
 
-function SpEffectParam:neutralDamageCutRate(value)
-	self:patchFloat(0x28, value)
+function EquipParamAccessory:shopLv(value)
+    self:patch2Byte(0x24, value)
 end
 
-function SpEffectParam:magicDamageCutRate(value)
-	self:patchFloat(0x2C, value)
+function EquipParamAccessory:trophySGradeId(value)
+    self:patch2Byte(0x26, value)
 end
 
-function SpEffectParam:fireDamageCutRate(value)
-	self:patchFloat(0x30, value)
+function EquipParamAccessory:trophySeqId(value)
+    self:patch2Byte(0x28, value)
 end
 
-function SpEffectParam:thunderDamageCutRate(value)
-	self:patchFloat(0x34, value)
+function EquipParamAccessory:equipModelCategory(value)
+    self:patchByte(0x2A, value)
 end
 
---Rate
-function SpEffectParam:physicsAttackRate(value)
-	self:patchFloat(0x38, value)
+function EquipParamAccessory:equipModelGender(value)
+    self:patchByte(0x2B, value)
 end
 
-function SpEffectParam:magicAttackRate(value)
-	self:patchFloat(0x3C, value)
+function EquipParamAccessory:accessoryCategory(value)
+    self:patchByte(0x2C, value)
 end
 
-function SpEffectParam:fireAttackRate(value)
-	self:patchFloat(0x40, value)
+function EquipParamAccessory:refCategory(value)
+    self:patchByte(0x2D, value)
 end
 
-function SpEffectParam:thunderAttackRate(value)
-	self:patchFloat(0x44, value)
+function EquipParamAccessory:spEffectCategory(value)
+    self:patchByte(0x2E, value)
 end
-
---Power Rate
-function SpEffectParam:physicsAttackPowerRate(value)
-	self:patchFloat(0x48, value)
-end
-
-function SpEffectParam:magicAttackPowerRate(value)
-	self:patchFloat(0x4C, value)
-end
-
-function SpEffectParam:fireAttackPowerRate(value)
-	self:patchFloat(0x50, value)
-end
-
-function SpEffectParam:thunderAttackPowerRate(value)
-	self:patchFloat(0x54, value)
-end
-
-function SpEffectParam:physicsAttackPower(value)
-	self:patch4Byte(0x58, value)
-end
-
-function SpEffectParam:magicAttackPower(value)
-	self:patch4Byte(0x5C, value)
-end
-
-function SpEffectParam:fireAttackPower(value)
-	self:patch4Byte(0x60, value)
-end
-
-function SpEffectParam:thunderAttackPower(value)
-	self:patch4Byte(0x64, value)
-end
-
---Diffence Rate
-function SpEffectParam:physicsDiffenceRate(value)
-	self:patchFloat(0x68, value)
-end
-
-function SpEffectParam:magicDiffenceRate(value)
-	self:patchFloat(0x6C, value)
-end
-
-function SpEffectParam:fireDiffenceRate(value)
-	self:patchFloat(0x70, value)
-end
-
-function SpEffectParam:thunderDiffenceRate(value)
-	self:patchFloat(0x74, value)
-end
-
-function SpEffectParam:physicsDiffence(value)
-	self:patch4Byte(0x78, value)
-end
-
-function SpEffectParam:magicDiffence(value)
-	self:patch4Byte(0x7C, value)
-end
-
-function SpEffectParam:fireDiffence(value)
-	self:patch4Byte(0x80, value)
-end
-
-function SpEffectParam:thunderDiffence(value)
-	self:patch4Byte(0x84, value)
-end
-
---Change Rare 1
-function SpEffectParam:noGuardDamageRate(value)
-	self:patchFloat(0x88, value)
-end
-
-function SpEffectParam:vitalSpotChangeRate(value)
-	self:patchFloat(0x8C, value)
-end
-
-function SpEffectParam:normalSpotChangeRate(value)
-	self:patchFloat(0x90, value)
-end
-
-function SpEffectParam:maxHpChangeRate(value)
-	self:patchFloat(0x94, value)
-end
-
-
-function SpEffectParam:behaviorId(value)
-	self:patch4Byte(0x98, value)
-end
-
---Change Rare 2
-function SpEffectParam:changeHpRate(value)
-	self:patchFloat(0x9C, value)
-end
-
-function SpEffectParam:changeHpPoint(value)
-	self:patch4Byte(0xA0, value)
-end
-
-function SpEffectParam:changeMpRate(value)
-	self:patchFloat(0xA4, value)
-end
-
-function SpEffectParam:changeMpPoint(value)
-	self:patch4Byte(0xA8, value)
-end
-
-function SpEffectParam:mpRecoverChangeSpeed(value)
-	self:patch4Byte(0xAC, value)
-end
-
-function SpEffectParam:changeStaminaRate(value)
-	self:patchFloat(0xB0, value)
-end
-
-function SpEffectParam:changeStaminaPoint(value)
-	self:patch4Byte(0xB4, value)
-end
-
-function SpEffectParam:staminaRecoverChangeSpeed(value)
-	self:patch4Byte(0xB8, value)
-end
-
-
-function SpEffectParam:magicEffectTimeChange(value)
-	self:patchFloat(0xBC, value)
-end
-
---Durability
-function SpEffectParam:insideDurability(value)
-	self:patch4Byte(0xC0, value)
-end
-
-function SpEffectParam:maxDurability(value)
-	self:patch4Byte(0xC4, value)
-end
-
-
-function SpEffectParam:staminaAttackRate(value)
-	self:patchFloat(0xC8, value)
-end
-
-function SpEffectParam:poizonAttackPower(value)
-	self:patch4Byte(0xCC, value)
-end
-
-function SpEffectParam:registIllness(value)
-	self:patch4Byte(0xD0, value)
-end
-
-function SpEffectParam:registBlood(value)
-	self:patch4Byte(0xD4, value)
-end
-
-function SpEffectParam:registCurse(value)
-	self:patch4Byte(0xD8, value)
-end
-
-function SpEffectParam:fallDamageRate(value)
-	self:patchFloat(0xDC, value)
-end
-
-function SpEffectParam:soulRate(value)
-	self:patchFloat(0xE0, value)
-end
-
-function SpEffectParam:equipWeightChangeRate(value)
-	self:patchFloat(0xE4, value)
-end
-
-function SpEffectParam:allItemWeightChangeRate(value)
-	self:patchFloat(0xE8, value)
-end
-
-function SpEffectParam:soul(value)
-	self:patch4Byte(0xEC, value)
-end
-
-function SpEffectParam:animIdOffset(value)
-	self:patch4Byte(0xF0, value)
-end
-
-function SpEffectParam:haveSoulRate(value)
-	self:patchFloat(0xF4, value)
-end
-
-function SpEffectParam:targetPriority(value)
-	self:patchFloat(0xF8, value)
-end
-
-function SpEffectParam:sightSearchEnemyCut(value)
-	self:patch4Byte(0xFC, value)
-end
-
-function SpEffectParam:hearingSearchEnemyCut(value)
-	self:patchFloat(0x100, value)
-end
-
-function SpEffectParam:grabityRate(value)
-	self:patchFloat(0x104, value)
-end
-
---Change Rate 3
-function SpEffectParam:registPoizonChangeRate(value)
-	self:patchFloat(0x108, value)
-end
-
-function SpEffectParam:registIllnessChangeRate(value)
-	self:patchFloat(0x10C, value)
-end
-
-function SpEffectParam:registBloodChangeRate(value)
-	self:patchFloat(0x110, value)
-end
-
-function SpEffectParam:registCurseChangeRate(value)
-	self:patchFloat(0x114, value)
-end
-
-
-function SpEffectParam:soulStealRate(value)
-	self:patchFloat(0x118, value)
-end
-
-function SpEffectParam:lifeReductionRate(value)
-	self:patchFloat(0x11C, value)
-end
-
-function SpEffectParam:hpRecoverRate(value)
-	self:patchFloat(0x120, value)
-end
-
-function SpEffectParam:replaceSpEffectId(value)
-	self:patch4Byte(0x124, value)
-end
-
-function SpEffectParam:cycleOccurrenceSpEffectId(value)
-	self:patch4Byte(0x128, value)
-end
-
-function SpEffectParam:atkOccurence(value)
-	self:patch4Byte(0x12C, value)
-end
-
-function SpEffectParam:guardDefFlickPowerRate(value)
-	self:patchFloat(0x130, value)
-end
-
-function SpEffectParam:guardStaminaCutRate(value)
-	self:patchFloat(0x134, value)
-end
-
-function SpEffectParam:rayCastPassedTime(value)
-	self:patch2Byte(0x138, value)
-end
-
-function SpEffectParam:changeSuperArmorPoint(value)
-	self:patch2Byte(0x13A, value)
-end
-
-function SpEffectParam:bowDistRate(value)
-	self:patch2Byte(0x13C, value)
-end
-
-function SpEffectParam:spCategory(value)
-	self:patch2Byte(0x13E, value)
-end
-
-function SpEffectParam:categoryPriority(value)
-	self:patchByte(0x140, value)
-end
-
-function SpEffectParam:saveCategory(value)
-	self:patchByte(0x141, value)
-end
-
-function SpEffectParam:changeMagicSlot(value)
-	self:patchByte(0x142, value)
-end
-
-function SpEffectParam:changeMiracleSlot(value)
-	self:patchByte(0x143, value)
-end
-
-function SpEffectParam:heroPointDamage(value)
-	self:patchByte(0x144, value)
-end
-
-function SpEffectParam:defFlickPower(value)
-	self:patchByte(0x145, value)
-end
-
-function SpEffectParam:flickDamageCutRate(value)
-	self:patchByte(0x146, value)
-end
-
-function SpEffectParam:bloodDamageRate(value)
-	self:patchByte(0x147, value)
-end
-
---Damage Level
-function SpEffectParam:dmgLv_None(value)
-	self:patchByte(0x148, value)
-end
-
-function SpEffectParam:dmgLv_S(value)
-	self:patchByte(0x149, value)
-end
-
-function SpEffectParam:dmgLv_M(value)
-	self:patchByte(0x14A, value)
-end
-
-function SpEffectParam:dmgLv_L(value)
-	self:patchByte(0x14B, value)
-end
-
-function SpEffectParam:dmgLv_BlowM(value)
-	self:patchByte(0x14C, value)
-end
-
-function SpEffectParam:dmgLv_Push(value)
-	self:patchByte(0x14D, value)
-end
-
-function SpEffectParam:dmgLv_Strike(value)
-	self:patchByte(0x14E, value)
-end
-
-function SpEffectParam:dmgLv_BlowS(value)
-	self:patchByte(0x14F, value)
-end
-
-function SpEffectParam:dmgLv_Min(value)
-	self:patchByte(0x150, value)
-end
-
-function SpEffectParam:dmgLv_Uppercut(value)
-	self:patchByte(0x151, value)
-end
-
-function SpEffectParam:dmgLv_BlowLL(value)
-	self:patchByte(0x152, value)
-end
-
-function SpEffectParam:dmgLv_Breath(value)
-	self:patchByte(0x153, value)
-end
-
-
-function SpEffectParam:atkAttribute(value)
-	self:patchByte(0x154, value)
-end
-
-function SpEffectParam:spAttribute(value)
-	self:patchByte(0x155, value)
-end
-
-function SpEffectParam:stateInfo(value)
-	self:patchByte(0x156, value)
-end
-
-function SpEffectParam:wepParamChange(value)
-	self:patchByte(0x157, value)
-end
-
-function SpEffectParam:moveType(value)
-	self:patchByte(0x158, value)
-end
-
-function SpEffectParam:lifeReductionType(value)
-	self:patchByte(0x159, value)
-end
-
-function SpEffectParam:throwCondition(value)
-	self:patchByte(0x15A, value)
-end
-
-function SpEffectParam:addBehaviorJudgeId_condition(value)
-	self:patchByte(0x15B, value)
-end
-
-function SpEffectParam:addBehaviorJudgeId_add(value)
-	self:patchByte(0x15C, value)
-end
-
--- insert Minor 1 here
-
--- insert Unknown here
-
-function SpEffectParam:frostAttackPower(value)
-	self:patch4Byte(0x1AC, value)
-end
-
-function SpEffectParam:darkDamageCutRate(value)
-	self:patchFloat(0x1D4, value)
-end
-
-function SpEffectParam:darkDifferenceRate(value)
-	self:patchFloat(0x1D8, value)
-end
-
-function SpEffectParam:darkAttackPower(value)
-	self:patch4Byte(0x1E4, value)
-end
-
-function SpEffectParam:registFrostChange(value)
-	self:patch4Byte(0x2BC, value)
-end
-
---Buff's
-function SpEffectParam:vigorBuff(value)
-	self:patchByte(0x308, value)
-end
-
-function SpEffectParam:attunementBuff(value)
-	self:patchByte(0x309, value)
-end
-
-function SpEffectParam:enduranceBuff(value)
-	self:patchByte(0x30A, value)
-end
-
-function SpEffectParam:vitalityBuff(value)
-	self:patchByte(0x30B, value)
-end
-
-function SpEffectParam:strenghtBuff(value)
-	self:patchByte(0x30C, value)
-end
-
-function SpEffectParam:dextrerityBuff(value)
-	self:patchByte(0x30D, value)
-end
-
-function SpEffectParam:intelligenceBuff(value)
-	self:patchByte(0x30E, value)
-end
-
-function SpEffectParam:faithBuff(value)
-	self:patchByte(0x30F, value)
-end
-
-function SpEffectParam:luckBuff(value)
-	self:patchByte(0x310, value)
-end
-
---[[END SpEffectParam class]]--
+--[[END EquipParamAccessory class]]--
 
 [DISABLE]
 {$lua}
 if syntaxcheck then return end
-
-</AssemblerScript>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>1337037706</ID>
-                  <Description>"Magic"</Description>
-                  <Options moHideChildren="1"/>
-                  <LastState/>
-                  <Color>000000</Color>
-                  <VariableType>Auto Assembler Script</VariableType>
-                  <AssemblerScript>[ENABLE]
-{$lua}
-if syntaxcheck then return end
-
---[[START Magic class]]--
-Magic = BaseParamClass:new()
-
-function Magic:new(uuid, id, address)
-	local o = {}
-	self.__index = self
-	setmetatable(o, self)
-
-	o:init("Magic", uuid, id, address)
-	return o
-end
-
-function Magic:YesNoDialogBox(value)
-	self:patchByte(0x0, value)
-end
-
-function Magic:LimitCancelSpEffectID(value)
-	self:patch4Byte(0x4, value)
-end
-
-function Magic:SortID(value)
-	self:patch2Byte(0x8, value)
-end
-
-function Magic:ReferenceID(value)
-	self:patch2Byte(0xA, value)
-end
-
-function Magic:FPCost(value)
-	self:patch2Byte(0xC, value)
-end
-
-function Magic:StaminaCost(value)
-	self:patch2Byte(0xE, value)
-end
-
-function Magic:IconID(value)
-	self:patch2Byte(0x10, value)
-end
-
-function Magic:BehaviorID(value)
-	self:patch2Byte(0x12, value)
-end
-
-function Magic:MaterialItemID(value)
-	self:patch2Byte(0x14, value)
-end
-
-function Magic:ReplaceMagicID(value)
-	self:patch2Byte(0x16, value)
-end
-
-function Magic:NumberofCasts(value)
-	self:patch2Byte(0x18, value)
-end
-
-function Magic:Humanity(value)
-	self:patchByte(0x1A, value)
-end
-
-function Magic:OverDexterity(value)
-	self:patchByte(0x1B, value)
-end
-
-function Magic:SFXVariation(value)
-	self:patchByte(0x1C, value)
-end
-
-function Magic:SlotsUsed(value)
-	self:patchByte(0x1D, value)
-end
-
-function Magic:RequiredINT(value)
-	self:patchByte(0x1E, value)
-end
-
-function Magic:RequiredFAI(value)
-	self:patchByte(0x1F, value)
-end
-
-function Magic:DexterityMinimumCastSpeedScaling(value)
-	self:patchByte(0x20, value)
-end
-
-function Magic:DexterityMaximumCastSpeedScaling(value)
-	self:patchByte(0x21, value)
-end
-
-function Magic:EzStateBehaviorType(value)
-	self:patchByte(0x22, value)
-end
-
-function Magic:ReferenceCategory(value)
-	self:patchByte(0x23, value)
-end
-
-function Magic:SpEffectCategory(value)
-	self:patchByte(0x24, value)
-end
-
-function Magic:CastAnimation(value)
-	self:patchByte(0x25, value)
-end
-
-function Magic:MenuType(value)
-	self:patchByte(0x26, value)
-end
-
-function Magic:HasSpEffectType(value)
-	self:patchByte(0x27, value)
-end
-
-function Magic:ReplaceCategory(value)
-	self:patchByte(0x28, value)
-end
-
-function Magic:UseLimitCategory(value)
-	self:patchByte(0x29, value)
-end
-
--- insert Vow Types 1 here
-
-function Magic:EnableMulti(value)
-	self:patchBinary(0x2B, value, 0)
-end
-
-function Magic:EnableMultOnly(value)
-	self:patchBinary(0x2B, value, 1)
-end
-
-function Magic:IsWeaponEnchant(value)
-	self:patchBinary(0x2B, value, 2)
-end
-
-function Magic:IsShieldEnchant(value)
-	self:patchBinary(0x2B, value, 3)
-end
-
-function Magic:EnableHuman(value)
-	self:patchBinary(0x2B, value, 4)
-end
-
-function Magic:EnableDragonPhantom(value)
-	self:patchBinary(0x2B, value, 5)
-end
-
-function Magic:EnableWhitePhantom(value)
-	self:patchBinary(0x2B, value, 6)
-end
-
-function Magic:EnableBlackPhantom(value)
-	self:patchBinary(0x2B, value, 7)
-end
-
-function Magic:DisableOffline(value)
-	self:patchBinary(0x2C, value, 0)
-end
-
-function Magic:UsesMiracleResonance(value)
-	self:patchBinary(0x2C, value, 1)
-end
-
--- insert Vow Types 2 here
-
--- insert 2E-2F
-
-function Magic:sfxID1(value)
-	self:patch4Byte(0x30, value)
-end
-
-function Magic:sfxID2(value)
-	self:patch4Byte(0x34, value)
-end
-
-function Magic:sfxID3(value)
-	self:patch4Byte(0x38, value)
-end
-
--- insert 3C-40
-
---Faith Breakpoints
-function Magic:FaithBreakpoint20(value)
-	self:patchByte(0x41, value)
-end
-
-function Magic:FaithBreakpoint30(value)
-	self:patchByte(0x42, value)
-end
-
-function Magic:FaithBreakpoint40(value)
-	self:patchByte(0x43, value)
-end
-
-function Magic:FaithBreakpoint60(value)
-	self:patchByte(0x44, value)
-end
-
--- insert 45-47
-
-
---Spell cast at X Faith
-function Magic:Spellcastat20Faith(value)
-	self:patch4Byte(0x48, value)
-end
-
-function Magic:Spellcastat20Faith(value)
-	self:patch4Byte(0x4C, value)
-end
-
-function Magic:Spellcastat20Faith(value)
-	self:patch4Byte(0x50, value)
-end
-
-function Magic:Spellcastat20Faith(value)
-	self:patch4Byte(0x54, value)
-end
-
--- insert 58-60
-
--- Bullets
-function Magic:Bullet1(value)
-	self:patch4Byte(0x64, value)
-end
-
-function Magic:Bullet2(value)
-	self:patch4Byte(0x68, value)
-end
-
-function Magic:Bullet3(value)
-	self:patch4Byte(0x6C, value)
-end
-
--- insert 6C
-
-function Magic:Bullet4(value)
-	self:patch4Byte(0x70, value)
-end
-
---[[END Magic class]]--
-
-[DISABLE]
-{$lua}
-if syntaxcheck then return end
-
 </AssemblerScript>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>1337037707</ID>
                   <Description>"Bullet"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState/>
+                  <LastState Activated="1"/>
                   <Color>000000</Color>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
@@ -3026,7 +3426,7 @@ if syntaxcheck then return end
                   <ID>1337037708</ID>
                   <Description>"BehaviorParam_PC"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState/>
+                  <LastState Activated="1"/>
                   <Color>000000</Color>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
@@ -3103,7 +3503,7 @@ if syntaxcheck then return end
                   <ID>1337037709</ID>
                   <Description>"AtkParam_Pc"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState/>
+                  <LastState Activated="1"/>
                   <Color>000000</Color>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
@@ -3374,406 +3774,6 @@ end
 if syntaxcheck then return end
 </AssemblerScript>
                 </CheatEntry>
-                <CheatEntry>
-                  <ID>1337037710</ID>
-                  <Description>"ThrowParam"</Description>
-                  <Options moHideChildren="1"/>
-                  <LastState/>
-                  <Color>000000</Color>
-                  <VariableType>Auto Assembler Script</VariableType>
-                  <AssemblerScript>[ENABLE]
-{$lua}
-if syntaxcheck then return end
-
---[[START ThrowParam class]]--
-ThrowParam = BaseParamClass:new()
-
-function ThrowParam:new(uuid, id, address)
-	local o = {}
-	self.__index = self
-	setmetatable(o, self)
-
-	o:init("ThrowParam", uuid, id, address)
-	return o
-end
-
-function ThrowParam:AtkChrId(value)
-	self:patch4Byte(0x0, value)
-end
-
-function ThrowParam:DefChrId(value)
-	self:patch4Byte(0x4, value)
-end
-
-function ThrowParam:Dist(value)
-	self:patchFloat(0x8, value)
-end
-
-function ThrowParam:DiffAngMin(value)
-	self:patchFloat(0xC, value)
-end
-
-function ThrowParam:DiffAngMax(value)
-	self:patchFloat(0x10, value)
-end
-
-function ThrowParam:UpperYRange(value)
-	self:patchFloat(0x14, value)
-end
-
-function ThrowParam:LowerYRange(value)
-	self:patchFloat(0x18, value)
-end
-
-function ThrowParam:DiffAngMyToDef(value)
-	self:patchFloat(0x1C, value)
-end
-
-function ThrowParam:ThrowTypeId(value)
-	self:patch4Byte(0x20, value)
-end
-
-function ThrowParam:AtkAnimId(value)
-	self:patch4Byte(0x24, value)
-end
-
-function ThrowParam:DefAnimId(value)
-	self:patch4Byte(0x28, value)
-end
-
-function ThrowParam:EscHp(value)
-	self:patch2Byte(0x2C, value)
-end
-
-function ThrowParam:SelfEscCycleTime(value)
-	self:patch2Byte(0x2E, value)
-end
-
-function ThrowParam:SphereCastRadiusRateTop(value)
-	self:patch2Byte(0x30, value)
-end
-
-function ThrowParam:SphereCastRadiusRateLow(value)
-	self:patch2Byte(0x32, value)
-end
-
-function ThrowParam:PadType(value)
-	self:patchByte(0x34, value)
-end
-
-function ThrowParam:AtkEnableState(value)
-	self:patchByte(0x35, value)
-end
-
-function ThrowParam:AtkSorbDmyId(value)
-	self:patchByte(0x36, value)
-end
-
-function ThrowParam:DefSorbDmyId(value)
-	self:patchByte(0x37, value)
-end
-
-function ThrowParam:ThrowType(value)
-	self:patchByte(0x38, value)
-end
-
-function ThrowParam:SelfEscCycleCnt(value)
-	self:patchByte(0x39, value)
-end
-
-function ThrowParam:DmyHasChrDirType(value)
-	self:patchByte(0x3A, value)
-end
-
--- insert 3B-7C here
-
---[[END ThrowParam class]]--
-
-[DISABLE]
-{$lua}
-if syntaxcheck then return end
-
-</AssemblerScript>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>1337037711</ID>
-                  <Description>"SwordArtsParam"</Description>
-                  <Options moHideChildren="1"/>
-                  <LastState/>
-                  <Color>000000</Color>
-                  <VariableType>Auto Assembler Script</VariableType>
-                  <AssemblerScript>[ENABLE]
-{$lua}
-if syntaxcheck then return end
-
---[[START SwordArtsParam class]]--
-SwordArtsParam = BaseParamClass:new()
-
-function SwordArtsParam:new(uuid, id, address)
-    local o = {}
-    self.__index = self
-    setmetatable(o, self)
-
-    o:init("SwordArtsParam", uuid, id, address)
-    return o
-end
-
-function SwordArtsParam:WeaponArtId(value)
-    self:patchByte(0x0,value)
-end
-
-function SwordArtsParam:FPcost(value)
-    self:patch2Byte(0xE,value)
-end
-
-function SwordArtsParam:R1FP(value)
-    self:patch2Byte(0x10,value)
-end
-
-function SwordArtsParam:R2FP(value)
-    self:patch2Byte(0x12,value)
-end
---[[END SwordArtsParam class]]--
-
-[DISABLE]
-{$lua}
-if syntaxcheck then return end
-</AssemblerScript>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>1337037712</ID>
-                  <Description>"EquipParamAccessory"</Description>
-                  <Options moHideChildren="1"/>
-                  <LastState/>
-                  <Color>000000</Color>
-                  <VariableType>Auto Assembler Script</VariableType>
-                  <AssemblerScript>[ENABLE]
-{$lua}
-if syntaxcheck then return end
-
---[[START EquipParamAccessory class]]--
-EquipParamAccessory = BaseParamClass:new()
-
-function EquipParamAccessory:new(uuid, id, address)
-    local o = {}
-    self.__index = self
-    setmetatable(o, self)
-
-    o:init("EquipParamAccessory", uuid, id, address)
-    return o
-end
-
-function EquipParamAccessory:refId(value)
-    self:patch4Byte(0x0, value)
-end
-
-function EquipParamAccessory:sfxVariation(value)
-    self:patch4Byte(0x4, value)
-end
-
-function EquipParamAccessory:weight(value)
-    self:patchFloat(0x8, value)
-end
-
-function EquipParamAccessory:behaviorId(value)
-    self:patch4Byte(0xC, value)
-end
-
-function EquipParamAccessory:basicPrice(value)
-    self:patch4Byte(0x10, value)
-end
-
-function EquipParamAccessory:sellValue(value)
-    self:patch4Byte(0x14, value)
-end
-
-function EquipParamAccessory:sortId(value)
-    self:patch4Byte(0x18, value)
-end
-
-function EquipParamAccessory:qwcId(value)
-    self:patch4Byte(0x1C, value)
-end
-
-function EquipParamAccessory:equipModelId(value)
-    self:patch2Byte(0x20, value)
-end
-
-function EquipParamAccessory:iconId(value)
-    self:patch2Byte(0x22, value)
-end
-
-function EquipParamAccessory:shopLv(value)
-    self:patch2Byte(0x24, value)
-end
-
-function EquipParamAccessory:trophySGradeId(value)
-    self:patch2Byte(0x26, value)
-end
-
-function EquipParamAccessory:trophySeqId(value)
-    self:patch2Byte(0x28, value)
-end
-
-function EquipParamAccessory:equipModelCategory(value)
-    self:patchByte(0x2A, value)
-end
-
-function EquipParamAccessory:equipModelGender(value)
-    self:patchByte(0x2B, value)
-end
-
-function EquipParamAccessory:accessoryCategory(value)
-    self:patchByte(0x2C, value)
-end
-
-function EquipParamAccessory:refCategory(value)
-    self:patchByte(0x2D, value)
-end
-
-function EquipParamAccessory:spEffectCategory(value)
-    self:patchByte(0x2E, value)
-end
---[[END EquipParamAccessory class]]--
-
-[DISABLE]
-{$lua}
-if syntaxcheck then return end
-</AssemblerScript>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>1337037713</ID>
-                  <Description>"SpEffectVfxParam"</Description>
-                  <Options moHideChildren="1"/>
-                  <LastState/>
-                  <Color>000000</Color>
-                  <VariableType>Auto Assembler Script</VariableType>
-                  <AssemblerScript>[ENABLE]
-{$lua}
-if syntaxcheck then return end
-
---[[START SpEffectVfxParam class]]--
-SpEffectVfxParam = BaseParamClass:new()
-
-function SpEffectVfxParam:new(uuid, id, address)
-	local o = {}
-	self.__index = self
-	setmetatable(o, self)
-
-	o:init("SpEffectVfxParam", uuid, id, address)
-	return o
-end
-
-function SpEffectVfxParam:midstSfxID(value)
-    self:patch4Byte(0x0, value)
-end
-
-function SpEffectVfxParam:midstSeID(value)
-    self:patch4Byte(0x4, value)
-end
-
-function SpEffectVfxParam:initSfxID(value)
-    self:patch4Byte(0x8, value)
-end
-
-function SpEffectVfxParam:InitSeID(value)
-    self:patch4Byte(0xC, value)
-end
-
-function SpEffectVfxParam:FinishSfxID(value)
-    self:patch4Byte(0x10, value)
-end
-
-function SpEffectVfxParam:FinishSeID(value)
-    self:patch4Byte(0x14, value)
-end
-
-function SpEffectVfxParam:camouflageBeginDist(value)
-    self:patchFloat(0x18, value)
-end
-
-function SpEffectVfxParam:camouflageEndDist(value)
-    self:patchFloat(0x1C, value)
-end
-
-function SpEffectVfxParam:transformProtectorID(value)
-    self:patch4Byte(0x20, value)
-end
-
-function SpEffectVfxParam:midstDmyID(value)
-    self:patch2Byte(0x24, value)
-end
-
-function SpEffectVfxParam:initDmyID(value)
-    self:patch2Byte(0x26, value)
-end
-
-function SpEffectVfxParam:FinishDmyID(value)
-    self:patch2Byte(0x28, value)
-end
-
-function SpEffectVfxParam:EffectType(value)
-    self:patchByte(0x2A, value)
-end
-
-function SpEffectVfxParam:SoulParamIDForWepEnchant(value)
-    self:patchByte(0x2B, value)
-end
-
-function SpEffectVfxParam:PlayCategory(value)
-    self:patchByte(0x2C, value)
-end
-
-function SpEffectVfxParam:PlayPriority(value)
-    self:patchByte(0x2D, value)
-end
-
-function SpEffectVfxParam:ExistEffectForLarge(value)
-    self:patchBinary(0x2E, value , 0)
-end
-
-function SpEffectVfxParam:ExistEffectForSoul(value)
-    self:patchBinary(0x2E, value , 1)
-end
-
-function SpEffectVfxParam:EffectInvisibleAtCamouflage(value)
-    self:patchBinary(0x2E, value , 2)
-end
-
-function SpEffectVfxParam:useCamouflage(value)
-    self:patchBinary(0x2E, value , 3)
-end
-
-function SpEffectVfxParam:InvisibleAtFriendCamouflage(value)
-    self:patchBinary(0x2E, value , 4)
-end
-
-function SpEffectVfxParam:addMapAreaBlock(value)
-    self:patchBinary(0x2E, value , 5)
-end
-
-function SpEffectVfxParam:halfCamouflage(value)
-    self:patchBinary(0x2E, value , 6)
-end
-
-function SpEffectVfxParam:isFullBodyTransformProtectorID(value)
-    self:patchBinary(0x2E, value , 7)
-end
-
-function SpEffectVfxParam:IsInvisibleWeapon(value)
-    self:patchBinary(0x2F, value , 0)
-end
-
-function SpEffectVfxParam:IsSilence(value)
-    self:patchBinary(0x2F, value , 1)
-end
---[[END SpEffectVfxParam class]]--
-
-[DISABLE]
-{$lua}
-if syntaxcheck then return end
-</AssemblerScript>
-                </CheatEntry>
               </CheatEntries>
             </CheatEntry>
           </CheatEntries>
@@ -3785,6 +3785,137 @@ if syntaxcheck then return end
           <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
+            <CheatEntry>
+              <ID>1337037728</ID>
+              <Description>"Weapon Tweaks"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{
+  Author: AlchemyMouse
+          Thancc to InuNorii for updated helpers and offset advice
+  Description: EZ tweaker for some basic weapon values.
+               Made to reduce the need for ppv2 scripts
+}
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+local weapons = {}
+--[[ BASIC FORMAT:
+ex. Shortsword:
+weapons[2000000] = {2.0,65,1,  --weight,durability,buffable
+                    8,10,0,0,  --str,dex,int,fth reqs
+                    40.0,51.0,0.0,0.0,27.0,   --str,dex,int,fth,luck scaling
+                    10000,   --Controls scaling. See note
+                    99,0,0,0,0,110,45,    --phys,magic,fire,lightning,dark,crit,stamina damage
+                    1,0,0,1}  --standard,strike,slash,thrust
+SCALING CONTROL:
+-1:No scaling
+10000:Normal
+10014:Phys Fth 10014
+10015:Phys Lck
+12000:Phys Fth 12000
+13000:Phys Int
+15000:Phys Fth Lck
+16000:Normal 16000
+10010030:Magic Fth Int
+10131000:Man-grub's Staff
+10131100:Archdeacon's Great Staff
+10131200:Golden Ritual Spear
+10160420:Magic Str Dex
+]]
+
+for i,arr in pairs(weapons) do
+  local weaponPatch = EquipParamWeapon:new("WeaponTweaks",i)
+  weaponPatch:patchFloat(0xc,arr[1])
+  weaponPatch:patch2Byte(0xbe,arr[2])
+  weaponPatch:patchBinary(0x102,arr[3],7)
+  weaponPatch:patchByte(0xee,arr[4])
+  weaponPatch:patchByte(0xef,arr[5])
+  weaponPatch:patchByte(0xf0,arr[6])
+  weaponPatch:patchByte(0xf1,arr[7])
+  weaponPatch:patchFloat(0x20,arr[8])
+  weaponPatch:patchFloat(0x24,arr[9])
+  weaponPatch:patchFloat(0x28,arr[10])
+  weaponPatch:patchFloat(0x2c,arr[11])
+  weaponPatch:patchFloat(0x198,arr[12])
+  weaponPatch:patch4Byte(0x228,arr[13])
+  weaponPatch:patch2Byte(0xc4,arr[14])
+  weaponPatch:patch2Byte(0xc6,arr[15])
+  weaponPatch:patch2Byte(0xc8,arr[16])
+  weaponPatch:patch2Byte(0xca,arr[17])
+  weaponPatch:patch2Byte(0x188,arr[18])
+  weaponPatch:patch2Byte(0xdc,arr[19] - 100)
+  weaponPatch:patch2Byte(0xcc,arr[20])
+  weaponPatch:patchBinary(0x102,arr[21],3)
+  weaponPatch:patchBinary(0x102,arr[22],4)
+  weaponPatch:patchBinary(0x102,arr[23],5)
+  weaponPatch:patchBinary(0x102,arr[24],6)
+end
+[DISABLE]
+{$lua}
+if not syntaxcheck then
+  paramUtils:restore("WeaponTweaks")
+end
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337037729</ID>
+              <Description>"Shield Tweaks"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{
+  Author: AlchemyMouse
+          Thancc to InuNorii for updated helpers and offset advice
+  Description: EZ tweaker for some basic shield values.
+               Made to reduce the need for ppv2 scripts
+}
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+local shields = {}
+--[[ BASIC FORMAT:
+ex. Plank Shield
+shields[20210000] = {0.1,100,100,0,  --weight,durability,stability,buffable
+                    8,0,0,0,  --str,dex,int,fth reqs
+                    41.0,24.0,27.0,23.0,25.0,   --physical,magic,fire,lightning,dark absorption
+                    0,0,0,17,17,17,17}    --slash,strike,thrust,poison,toxic,bleed,frost defense
+]]
+
+shields[20210000] = {9001,9999,101,1,  --weight,durability,stability,buffable
+                    99,99,99,0,  --str,dex,int,fth reqs
+                    100.0,100.0,100.0,100.0,100.0,   --physical,magic,fire,lightning,dark absorption
+                    1,2,3,20,30,40,50}    --slash,strike,thrust,poison,toxic,bleed,frost defense
+
+for i,arr in pairs(shields) do
+  local shieldPatch = EquipParamWeapon:new("ShieldTweaks",i)
+  shieldPatch:patchFloat(0xc,arr[1])
+  shieldPatch:patch2Byte(0xbe,arr[2])
+  shieldPatch:patch2Byte(0xd4,arr[3])
+  shieldPatch:patchBinary(0x101,arr[4],5)
+  shieldPatch:patchByte(0xee,arr[5])
+  shieldPatch:patchByte(0xef,arr[6])
+  shieldPatch:patchByte(0xf0,arr[7])
+  shieldPatch:patchByte(0xf1,arr[8])
+  shieldPatch:patchFloat(0x30,arr[9])
+  shieldPatch:patchFloat(0x34,arr[10])
+  shieldPatch:patchFloat(0x38,arr[11])
+  shieldPatch:patchFloat(0x3c,arr[12])
+  shieldPatch:patchFloat(0x184,arr[13])
+  shieldPatch:patchByte(0xf8,arr[14])
+  shieldPatch:patchByte(0xf9,arr[15])
+  shieldPatch:patchByte(0xfa,arr[16])
+  shieldPatch:patchByte(0xfc,arr[17])
+  shieldPatch:patchByte(0xfd,arr[18])
+  shieldPatch:patchByte(0xfe,arr[19])
+  shieldPatch:patchByte(0x192,arr[20])
+end
+[DISABLE]
+{$lua}
+if not syntaxcheck then
+  paramUtils:restore("ShieldTweaks")
+end
+</AssemblerScript>
+            </CheatEntry>
             <CheatEntry>
               <ID>1337036854</ID>
               <Description>"Washing Pole Fix"</Description>
@@ -3825,6 +3956,28 @@ end
 </AssemblerScript>
             </CheatEntry>
             <CheatEntry>
+              <ID>1337037720</ID>
+              <Description>"Dragonslayer Spear Fix"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+{$lua}
+if syntaxcheck then return end
+local DragonSlayerSpear = EquipParamWeapon:new("DSSpear",9220000)
+DragonSlayerSpear:attackBaseThunder(50)
+
+local LightningCharge = SpEffectParam:new("DSSpear",130092200)
+LightningCharge:effectEndurance(60)
+LightningCharge:thunderAttackPower(40)
+LightningCharge:patchBinary(0x160,1,5) --bAdjustFaithAblity
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end
+paramUtils:restore("DSSpear")
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
               <ID>1337036853</ID>
               <Description>"Darkmoon Bow Fix"</Description>
               <LastState/>
@@ -3853,28 +4006,6 @@ paramUtils:paramDepatcher("DarkmoonBowWABulletDefault")
 end
 </AssemblerScript>
             </CheatEntry>
-            <CheatEntry>
-              <ID>1337037720</ID>
-              <Description>"Dragonslayer Spear Fix"</Description>
-              <LastState/>
-              <VariableType>Auto Assembler Script</VariableType>
-              <AssemblerScript>[ENABLE]
-{$lua}
-if syntaxcheck then return end
-local DragonSlayerSpear = EquipParamWeapon:new("DSSpear",9220000)
-DragonSlayerSpear:attackBaseThunder(50)
-
-local LightningCharge = SpEffectParam:new("DSSpear",130092200)
-LightningCharge:effectEndurance(60)
-LightningCharge:thunderAttackPower(40)
-LightningCharge:patchBinary(0x160,1,5) --bAdjustFaithAblity
-
-[DISABLE]
-{$lua}
-if syntaxcheck then return end
-paramUtils:restore("DSSpear")
-</AssemblerScript>
-            </CheatEntry>
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
@@ -3889,7 +4020,13 @@ paramUtils:restore("DSSpear")
               <Description>"Armor Tweaks"</Description>
               <LastState/>
               <VariableType>Auto Assembler Script</VariableType>
-              <AssemblerScript>[ENABLE]
+              <AssemblerScript>{
+  Author: AlchemyMouse
+          Thancc to InuNorii for updated helpers and offset advice
+  Description: EZ tweaker for some basic armor values.
+               Made to reduce the need for ppv2 scripts
+}
+[ENABLE]
 {$lua}
 if syntaxcheck then return end
 local armors = {}
@@ -3939,59 +4076,6 @@ end
           <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
-            <CheatEntry>
-              <ID>1337037721</ID>
-              <Description>"Fire Surge Fix"</Description>
-              <LastState/>
-              <VariableType>Auto Assembler Script</VariableType>
-              <AssemblerScript>[ENABLE]
-{$lua}
-if not syntaxcheck then
-local Spell = {
-      {2405000,0x1B,"FF"},
-      {2405000,0x20,"FF"},
-      {2405000,0x21,"FF"},
-}
-
-paramUtils:paramIterator("Magic",Spell,"FireSurgeDefault")
-end
-
-{$asm}
-[DISABLE]
-{$lua}
-if not syntaxcheck then
-paramUtils:paramDepatcher("FireSurgeDefault")
-end
-</AssemblerScript>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>1337037723</ID>
-              <Description>"Floating Chaos"</Description>
-              <LastState/>
-              <VariableType>Auto Assembler Script</VariableType>
-              <AssemblerScript>//WIP, needs testing
-[ENABLE]
-{$lua}
-if syntaxcheck then return end
-local FloatingChaosVisual = Bullet:new("floatingChaosEdit",12457000)
-FloatingChaosVisual:life(22)
-
-local FloatingChaosEmitter = Bullet:new("floatingChaosEdit",12457100)
-FloatingChaosEmitter:life(22)
-FloatingChaosEmitter:patchFloat(0xB0,4) --emitter interval
-FloatingChaosEmitter:patchFloat(0xB4,4) --emitter interval
-FloatingChaosEmitter:patchFloat(0xBC,2) --emitter delay until first shot
-
-local FloatingChaosProjectile = Bullet:new("floatingChaosEdit",12457110)
-FloatingChaosProjectile:hormingStopRange(0.4)
-FloatingChaosProjectile:homingAngle(35)
-
-[DISABLE]
-{$lua}
-if syntaxcheck then return end
-paramUtils:restore("floatingChaosEdit")
-</AssemblerScript>
-            </CheatEntry>
             <CheatEntry>
               <ID>1337037727</ID>
               <Description>"Way of White Corona"</Description>
@@ -4074,6 +4158,59 @@ paramUtils:paramDepatcher("lifehuntEffect")
 </AssemblerScript>
             </CheatEntry>
             <CheatEntry>
+              <ID>1337037723</ID>
+              <Description>"Floating Chaos"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>//WIP, needs testing
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+local FloatingChaosVisual = Bullet:new("floatingChaosEdit",12457000)
+FloatingChaosVisual:life(22)
+
+local FloatingChaosEmitter = Bullet:new("floatingChaosEdit",12457100)
+FloatingChaosEmitter:life(22)
+FloatingChaosEmitter:patchFloat(0xB0,4) --emitter interval
+FloatingChaosEmitter:patchFloat(0xB4,4) --emitter interval
+FloatingChaosEmitter:patchFloat(0xBC,2) --emitter delay until first shot
+
+local FloatingChaosProjectile = Bullet:new("floatingChaosEdit",12457110)
+FloatingChaosProjectile:hormingStopRange(0.4)
+FloatingChaosProjectile:homingAngle(35)
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end
+paramUtils:restore("floatingChaosEdit")
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337037721</ID>
+              <Description>"Fire Surge Fix"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+{$lua}
+if not syntaxcheck then
+local Spell = {
+      {2405000,0x1B,"FF"},
+      {2405000,0x20,"FF"},
+      {2405000,0x21,"FF"},
+}
+
+paramUtils:paramIterator("Magic",Spell,"FireSurgeDefault")
+end
+
+{$asm}
+[DISABLE]
+{$lua}
+if not syntaxcheck then
+paramUtils:paramDepatcher("FireSurgeDefault")
+end
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
               <ID>1337037725</ID>
               <Description>"Dark Weapon"</Description>
               <LastState/>
@@ -4120,6 +4257,96 @@ paramUtils:restore("blessedWeaponBuff")
           <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
+            <CheatEntry>
+              <ID>1337037730</ID>
+              <Description>"Weapon Value Finder"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{
+  Author: AlchemyMouse
+          Thancc to InuNorii for updated helpers and offset advice
+  Description: Put a weapon and it'll dump what you need into the output,
+               just copy that into the main weapon script and edit as needed
+}
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+local weaponID = 2000000 --Weapon You Want
+---------------------------DONT CHANGE------------------------------------------
+local function round(num)
+  return math.floor(num * 1000 + 0.5) / 1000
+end
+
+local idTable = paramUtils:getParamIdTable("EquipParamWeapon")
+local address = idTable[weaponID]
+local offset102 = readBytes(address + "258",1)
+
+local weight = round(readFloat(address + "12"))
+local durability = byteTableToWord(readBytes(address + "190",2,true))
+local canBuff = (offset102 &gt;&gt; 7)  &amp; 0x01
+
+local strReq = readBytes(address + "238",1)
+local dexReq = readBytes(address + "239",1)
+local intReq = readBytes(address + "240",1)
+local fthReq = readBytes(address + "241",1)
+
+local strScaling = round(readFloat(address + "32"))
+local dexScaling = round(readFloat(address + "36"))
+local intScaling = round(readFloat(address + "40"))
+local fthScaling = round(readFloat(address + "44"))
+local lckScaling = round(readFloat(address + "408"))
+
+local atkElementCorrect = byteTableToDword(readBytes(address + "552",4,true))
+
+local atkPhys = byteTableToWord(readBytes(address + "196",2,true))
+local atkMag = byteTableToWord(readBytes(address + "198",2,true))
+local atkFire = byteTableToWord(readBytes(address + "200",2,true))
+local atkThun = byteTableToWord(readBytes(address + "202",2,true))
+local atkDark = byteTableToWord(readBytes(address + "392",2,true))
+local throwAtkRate = 100 + byteTableToWord(readBytes(address + "220",2,true))
+local atkStam = byteTableToWord(readBytes(address + "204",2,true))
+
+local isNormal = (offset102 &gt;&gt; 3)  &amp; 0x01
+local isStrike = (offset102 &gt;&gt; 4)  &amp; 0x01
+local isSlash = (offset102 &gt;&gt; 5)  &amp; 0x01
+local isThrust = (offset102 &gt;&gt; 6)  &amp; 0x01
+
+print("weapons[" .. weaponID .. "] = {" ..
+      weight .. "," ..
+      durability .. "," ..
+      canBuff .. "," .. "  --weight,durability,buffable")
+print("                    " ..
+      strReq .. "," ..
+      dexReq .. "," ..
+      intReq .. "," ..
+      fthReq .. "," .. "  --str,dex,int,fth reqs")
+print("                    " ..
+      strScaling .. "," ..
+      dexScaling .. "," ..
+      intScaling .. "," ..
+      fthScaling .. "," ..
+      lckScaling .. "," .. "   --str,dex,int,fth,luck scaling")
+print("                    " ..
+      atkElementCorrect .. "," .. "   --Controls scaling. See note")
+print("                    " ..
+      atkPhys .. "," ..
+      atkMag .. "," ..
+      atkFire .. "," ..
+      atkThun .. "," ..
+      atkDark .. "," ..
+      throwAtkRate .. "," ..
+      atkStam .. "," .. "    --phys,magic,fire,lightning,dark,crit,stamina damage")
+print("                    " ..
+      isNormal .. "," ..
+      isStrike .. "," ..
+      isSlash .. "," ..
+      isThrust .. "}" .. "  --standard,strike,slash,thrust")
+
+
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
             <CheatEntry>
               <ID>1337037717</ID>
               <Description>"Armor Value Finder"</Description>
@@ -4186,15 +4413,87 @@ print("                    " ..
 [DISABLE]
 </AssemblerScript>
             </CheatEntry>
+            <CheatEntry>
+              <ID>1337037731</ID>
+              <Description>"Shield Value Finder"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{
+  Author: AlchemyMouse
+          Thancc to InuNorii for updated helpers and offset advice
+  Description: Put a shield and it'll dump what you need into the output,
+               just copy that into the main shield script and edit as needed
+}
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+local shieldID = 20210000 --Shield You Want
+---------------------------DONT CHANGE------------------------------------------
+local function round(num)
+  return math.floor(num * 1000 + 0.5) / 1000
+end
+
+local idTable = paramUtils:getParamIdTable("EquipParamWeapon")
+local address = idTable[shieldID]
+
+local weight = round(readFloat(address + "12"))
+local durability = byteTableToWord(readBytes(address + "190",2,true))
+local stability = byteTableToWord(readBytes(address + "212",2,true))
+local canBuff = ((readBytes(address + "257",1)) &gt;&gt; 5)  &amp; 0x01
+
+local strReq = readBytes(address + "238",1)
+local dexReq = readBytes(address + "239",1)
+local intReq = readBytes(address + "240",1)
+local fthReq = readBytes(address + "241",1)
+
+local physCut = round(readFloat(address + "48"))
+local magCut = round(readFloat(address + "52"))
+local fireCut = round(readFloat(address + "56"))
+local thunCut = round(readFloat(address + "60"))
+local darkCut = round(readFloat(address + "388"))
+
+local slashCut = readBytes(address + "249",1)
+local strikeCut = readBytes(address + "250",1)
+local thrustCut = readBytes(address + "251",1)
+local poisonCut = readBytes(address + "252",1)
+local diseaseCut = readBytes(address + "253",1)
+local bloodCut = readBytes(address + "254",1)
+local frostCut = readBytes(address + "402",1)
+
+print("shields[" .. shieldID .. "] = {" ..
+      weight .. "," ..
+      durability .. "," ..
+      stability .. "," ..
+      canBuff .. "," .. "  --weight,durability,stability,buffable")
+print("                    " ..
+      strReq .. "," ..
+      dexReq .. "," ..
+      intReq .. "," ..
+      fthReq .. "," .. "  --str,dex,int,fth reqs")
+print("                    " ..
+      physCut .. "," ..
+      magCut .. "," ..
+      fireCut .. "," ..
+      thunCut .. "," ..
+      darkCut .. "," .. "   --physical,magic,fire,lightning,dark absorption")
+print("                    " ..
+      slashCut .. "," ..
+      strikeCut .. "," ..
+      thrustCut .. "," ..
+      poisonCut .. "," ..
+      diseaseCut .. "," ..
+      bloodCut .. "," ..
+      frostCut .. "}" .. "    --slash,strike,thrust,poison,toxic,bleed,frost defense")
+
+
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
           </CheatEntries>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
-  <UserdefinedSymbols>
-    <SymbolEntry>
-      <Name>ParamPatchBase</Name>
-      <Address>1404EA050</Address>
-    </SymbolEntry>
-  </UserdefinedSymbols>
+  <UserdefinedSymbols/>
 </CheatTable>
