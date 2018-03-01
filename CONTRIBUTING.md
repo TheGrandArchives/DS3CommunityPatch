@@ -13,3 +13,5 @@ __Step 5:__ Give your pull request a short, descriptive title about what your ch
 __Step 6:__ Wait for your changes to be accepted or denied
 
 __Step 7:__ Repeat!
+
+read the pins fucko
