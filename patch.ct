@@ -3779,6 +3779,158 @@ if syntaxcheck then return end
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
+          <ID>1337041393</ID>
+          <Description>"Mechanical Tweaks"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>1337041392</ID>
+              <Description>"Increase stamina cost of rolls"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>define(address,"DarkSoulsIII.exe"+98D7EC)
+define(bytes,8B D0 48 8B 49 18)
+[ENABLE]
+assert(address,bytes)
+alloc(newmem,$1000,"DarkSoulsIII.exe"+98D7EC)
+
+label(code)
+label(return)
+
+newmem:
+  cmp eax,-10
+  jne code
+  mov eax,-18
+
+code:
+  mov edx,eax
+  mov rcx,[rcx+18]
+  jmp return
+
+address:
+  jmp newmem
+  nop
+return:
+
+[DISABLE]
+address:
+  db bytes
+
+dealloc(newmem)
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337041394</ID>
+              <Description>"Animation Edits"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{
+  Credits to Seriouz for finding this.
+
+  Swaps the effects of one animation with another
+}
+
+define(address,"DarkSoulsIII.exe"+F0949E)
+define(bytes,89 83 DC 00 00 00)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000,"DarkSoulsIII.exe"+F0949E)
+alloc(TAESwapIds,1024)
+
+label(code)
+label(return)
+label(loop_)
+label(swap)
+
+
+newmem:
+  push r10            // just do a linear search for the ID in our array
+  push r11
+  push r12
+
+  mov r10,TAESwapIds  // array ptr
+  xor r11,r11         // index
+  xor r12,r12         // 0
+
+loop_:
+  cmp r12d,[r10+r11*8] // array end -&gt; exit
+  je code
+  cmp eax,[r10+r11*8]
+  je swap
+  inc r11
+  jmp loop_
+
+swap:
+  lea r12,[r10+r11*8]
+  mov eax,[r12+4]
+
+code:
+  pop r12
+  pop r11
+  pop r10
+
+  mov [rbx+000000DC],eax
+  jmp return
+
+
+address:
+  jmp newmem
+  nop
+return:
+
+// I've allocated space for 255 ID swaps, but more could be added if needed
+// Please ensure that the array is terminated be a 0 entry, and that
+// no 0 entries are in the middle of the array
+
+TAESwapIds:
+// Original  | New
+dd #40343      #40309     //Black Serpent launch(Right) -&gt; Firestorm launch(Right)
+dd #42343      #42309     //Black Serpent launch(Left)  -&gt; Firestorm launch(Left)
+
+dd #71032100   #91032100  //Parry Dagger Parry -&gt; Buckler Parry
+dd #71036900   #91032100
+
+dd #48032100   #42032100  //Small Shield -&gt; Caestus Parry
+dd #48036900   #42036900
+
+dd #150032100  #42032100  //Med Shield Parry -&gt; Caestus Parry
+dd #150036900  #42032100
+
+dd #151032000  #42032100  //Curved Sword -&gt; Caestus Parry
+dd #151032030  #42032100
+dd #151032060  #42032100
+
+dd #101032000  #42032100  //PGCS -&gt; Caestus Parry
+dd #101032030  #42032100
+dd #101032060  #42032100
+
+dd #00000000   #00000000
+dd #00000000   #00000000
+dd #00000000   #00000000
+dd #00000000   #00000000
+
+// ....
+
+
+registersymbol(TAESwapIds)
+
+[DISABLE]
+
+address:
+  db bytes
+
+dealloc(newmem)
+dealloc(TAESwapIds)
+unregistersymbol(TAESwapIds)
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
           <ID>1337037715</ID>
           <Description>"Weapons"</Description>
           <Options moHideChildren="1"/>
@@ -4258,6 +4410,12 @@ paramUtils:restore("blessedWeaponBuff")
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
             <CheatEntry>
+              <ID>1337041395</ID>
+              <Description>"don't use any tweakers, better system incoming"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
               <ID>1337037730</ID>
               <Description>"Weapon Value Finder"</Description>
               <LastState/>
@@ -4495,5 +4653,10 @@ print("                    " ..
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
-  <UserdefinedSymbols/>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>newmem2</Name>
+      <Address>00640000</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
 </CheatTable>
